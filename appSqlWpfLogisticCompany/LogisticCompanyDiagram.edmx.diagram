@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="d53acc306e6e4d91ac181f7c39abc40b" Name="Diagram1" ZoomLevel="74">
+        <EntityTypeShape EntityType="LogisticCompanyModel.Category_Trailer" Width="1.5" PointX="0.75" PointY="1.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="LogisticCompanyModel.Consignees" Width="1.5" PointX="3" PointY="9.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="LogisticCompanyModel.Drivers" Width="1.5" PointX="3" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="LogisticCompanyModel.Executors" Width="1.5" PointX="0.75" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="LogisticCompanyModel.Requests" Width="1.5" PointX="5.25" PointY="4.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="LogisticCompanyModel.Shippers" Width="1.5" PointX="3" PointY="13" IsExpanded="true" />
+        <EntityTypeShape EntityType="LogisticCompanyModel.Users" Width="1.5" PointX="10" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="LogisticCompanyModel.Users_Gender" Width="1.5" PointX="7.75" PointY="2.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="LogisticCompanyModel.Users_Roles" Width="1.5" PointX="7.75" PointY="6.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="LogisticCompanyModel.Vehicles" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
+        <AssociationConnector Association="LogisticCompanyModel.FK__Vehicles__Code_C__4D94879B" ManuallyRouted="false" />
+        <AssociationConnector Association="LogisticCompanyModel.FK__Requests__Code_C__5812160E" ManuallyRouted="false" />
+        <AssociationConnector Association="LogisticCompanyModel.FK__Drivers__Code_Ex__47DBAE45" ManuallyRouted="false" />
+        <AssociationConnector Association="LogisticCompanyModel.FK__Requests__Code_D__5535A963" ManuallyRouted="false" />
+        <AssociationConnector Association="LogisticCompanyModel.FK__Requests__Code_E__5441852A" ManuallyRouted="false" />
+        <AssociationConnector Association="LogisticCompanyModel.FK__Vehicles__Code_E__4CA06362" ManuallyRouted="false" />
+        <AssociationConnector Association="LogisticCompanyModel.FK__Requests__Code_S__571DF1D5" ManuallyRouted="false" />
+        <AssociationConnector Association="LogisticCompanyModel.FK__Requests__Code_V__5629CD9C" ManuallyRouted="false" />
+        <AssociationConnector Association="LogisticCompanyModel.FK__Users__Code_Gend__4222D4EF" ManuallyRouted="false" />
+        <AssociationConnector Association="LogisticCompanyModel.FK__Users__Code_Role__4316F928" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

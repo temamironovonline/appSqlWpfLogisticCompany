@@ -1,0 +1,761 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Хранилище LogisticCompanyModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Category_Trailer">
+          <Key>
+            <PropertyRef Name="Code_Trailer" />
+          </Key>
+          <Property Name="Code_Trailer" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name_Trailer" Type="nvarchar" MaxLength="21" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Consignees">
+          <Key>
+            <PropertyRef Name="Code_Consignee" />
+          </Key>
+          <Property Name="Code_Consignee" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name_Company" Type="nvarchar" MaxLength="51" />
+          <Property Name="Name_Responsible" Type="nvarchar" MaxLength="21" Nullable="false" />
+          <Property Name="Surname_Responsible" Type="nvarchar" MaxLength="21" Nullable="false" />
+          <Property Name="Midname_Responsible" Type="nvarchar" MaxLength="21" Nullable="false" />
+          <Property Name="Number_Responsible" Type="nvarchar" MaxLength="13" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Drivers">
+          <Key>
+            <PropertyRef Name="Code_Driver" />
+          </Key>
+          <Property Name="Code_Driver" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Code_Executor" Type="int" Nullable="false" />
+          <Property Name="Name_Driver" Type="nvarchar" MaxLength="21" Nullable="false" />
+          <Property Name="Surname_Driver" Type="nvarchar" MaxLength="21" Nullable="false" />
+          <Property Name="Midname_Driver" Type="nvarchar" MaxLength="21" Nullable="false" />
+          <Property Name="Telephone_Number_Executor" Type="nvarchar" MaxLength="13" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Executors">
+          <Key>
+            <PropertyRef Name="Code_Executor" />
+          </Key>
+          <Property Name="Code_Executor" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name_Executor" Type="nvarchar" MaxLength="21" Nullable="false" />
+          <Property Name="Surname_Executor" Type="nvarchar" MaxLength="21" Nullable="false" />
+          <Property Name="Midname_Executor" Type="nvarchar" MaxLength="21" Nullable="false" />
+          <Property Name="Telephone_Number_Executor" Type="nvarchar" MaxLength="13" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Requests">
+          <Key>
+            <PropertyRef Name="Code_Request" />
+          </Key>
+          <Property Name="Code_Request" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Code_Executor" Type="int" />
+          <Property Name="Code_Driver" Type="int" />
+          <Property Name="Code_Vehicle" Type="int" />
+          <Property Name="Date_Loading" Type="date" Nullable="false" />
+          <Property Name="Place_Loading" Type="nvarchar" MaxLength="151" Nullable="false" />
+          <Property Name="Code_Shipper" Type="int" />
+          <Property Name="Name_Cargo" Type="nvarchar" MaxLength="101" Nullable="false" />
+          <Property Name="Transportation_Conditions" Type="nvarchar" MaxLength="151" Nullable="false" />
+          <Property Name="Date_Unloading" Type="date" Nullable="false" />
+          <Property Name="Place_Unloading" Type="nvarchar" MaxLength="151" Nullable="false" />
+          <Property Name="Code_Consignee" Type="int" />
+          <Property Name="Route_Towns" Type="nvarchar" MaxLength="51" Nullable="false" />
+          <Property Name="Transportation_Format" Type="nvarchar" MaxLength="101" Nullable="false" />
+          <Property Name="Amount_Payment" Type="nvarchar" MaxLength="13" Nullable="false" />
+          <Property Name="Payment_Conditions" Type="nvarchar" MaxLength="101" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Shippers">
+          <Key>
+            <PropertyRef Name="Code_Shipper" />
+          </Key>
+          <Property Name="Code_Shipper" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name_Company" Type="nvarchar" MaxLength="51" />
+          <Property Name="Name_Responsible" Type="nvarchar" MaxLength="21" Nullable="false" />
+          <Property Name="Surname_Responsible" Type="nvarchar" MaxLength="21" Nullable="false" />
+          <Property Name="Midname_Responsible" Type="nvarchar" MaxLength="21" Nullable="false" />
+          <Property Name="Number_Responsible" Type="nvarchar" MaxLength="13" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="Code_User" />
+          </Key>
+          <Property Name="Code_User" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name_User" Type="nvarchar" MaxLength="21" Nullable="false" />
+          <Property Name="Surname_User" Type="nvarchar" MaxLength="21" Nullable="false" />
+          <Property Name="Midname_User" Type="nvarchar" MaxLength="21" Nullable="false" />
+          <Property Name="Login_User" Type="nvarchar" MaxLength="21" Nullable="false" />
+          <Property Name="Password_User" Type="int" Nullable="false" />
+          <Property Name="Code_Gender" Type="int" Nullable="false" />
+          <Property Name="Date_Birthday_User" Type="date" Nullable="false" />
+          <Property Name="Code_Role" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Users_Gender">
+          <Key>
+            <PropertyRef Name="Code_Gender" />
+          </Key>
+          <Property Name="Code_Gender" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name_Gender" Type="nvarchar" MaxLength="8" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Users_Roles">
+          <Key>
+            <PropertyRef Name="Code_Role" />
+          </Key>
+          <Property Name="Code_Role" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name_Role" Type="nvarchar" MaxLength="15" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Vehicles">
+          <Key>
+            <PropertyRef Name="Code_Vehicle" />
+          </Key>
+          <Property Name="Code_Vehicle" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Code_Executor" Type="int" Nullable="false" />
+          <Property Name="Code_Category" Type="int" Nullable="false" />
+          <Property Name="Brand_Vehicle" Type="nvarchar" MaxLength="21" Nullable="false" />
+          <Property Name="Model_Vehicle" Type="nvarchar" MaxLength="21" Nullable="false" />
+          <Property Name="Length_Vehicle" Type="real" Nullable="false" />
+          <Property Name="Width_Vehicle" Type="real" Nullable="false" />
+          <Property Name="Height_Vehicle" Type="real" Nullable="false" />
+          <Property Name="Tonnage_Vehicle" Type="real" Nullable="false" />
+          <Property Name="Volume_Vehicle" Type="real" Nullable="false" />
+          <Property Name="Number_Vehicle" Type="real" Nullable="false" />
+        </EntityType>
+        <Association Name="FK__Drivers__Code_Ex__47DBAE45">
+          <End Role="Executors" Type="Self.Executors" Multiplicity="1" />
+          <End Role="Drivers" Type="Self.Drivers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Executors">
+              <PropertyRef Name="Code_Executor" />
+            </Principal>
+            <Dependent Role="Drivers">
+              <PropertyRef Name="Code_Executor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Requests__Code_C__5812160E">
+          <End Role="Consignees" Type="Self.Consignees" Multiplicity="0..1" />
+          <End Role="Requests" Type="Self.Requests" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Consignees">
+              <PropertyRef Name="Code_Consignee" />
+            </Principal>
+            <Dependent Role="Requests">
+              <PropertyRef Name="Code_Consignee" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Requests__Code_D__5535A963">
+          <End Role="Drivers" Type="Self.Drivers" Multiplicity="0..1" />
+          <End Role="Requests" Type="Self.Requests" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Drivers">
+              <PropertyRef Name="Code_Driver" />
+            </Principal>
+            <Dependent Role="Requests">
+              <PropertyRef Name="Code_Driver" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Requests__Code_E__5441852A">
+          <End Role="Executors" Type="Self.Executors" Multiplicity="0..1" />
+          <End Role="Requests" Type="Self.Requests" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Executors">
+              <PropertyRef Name="Code_Executor" />
+            </Principal>
+            <Dependent Role="Requests">
+              <PropertyRef Name="Code_Executor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Requests__Code_S__571DF1D5">
+          <End Role="Shippers" Type="Self.Shippers" Multiplicity="0..1" />
+          <End Role="Requests" Type="Self.Requests" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Shippers">
+              <PropertyRef Name="Code_Shipper" />
+            </Principal>
+            <Dependent Role="Requests">
+              <PropertyRef Name="Code_Shipper" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Requests__Code_V__5629CD9C">
+          <End Role="Vehicles" Type="Self.Vehicles" Multiplicity="0..1" />
+          <End Role="Requests" Type="Self.Requests" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Vehicles">
+              <PropertyRef Name="Code_Vehicle" />
+            </Principal>
+            <Dependent Role="Requests">
+              <PropertyRef Name="Code_Vehicle" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Users__Code_Gend__4222D4EF">
+          <End Role="Users_Gender" Type="Self.Users_Gender" Multiplicity="1" />
+          <End Role="Users" Type="Self.Users" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users_Gender">
+              <PropertyRef Name="Code_Gender" />
+            </Principal>
+            <Dependent Role="Users">
+              <PropertyRef Name="Code_Gender" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Users__Code_Role__4316F928">
+          <End Role="Users_Roles" Type="Self.Users_Roles" Multiplicity="1" />
+          <End Role="Users" Type="Self.Users" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users_Roles">
+              <PropertyRef Name="Code_Role" />
+            </Principal>
+            <Dependent Role="Users">
+              <PropertyRef Name="Code_Role" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Vehicles__Code_C__4D94879B">
+          <End Role="Category_Trailer" Type="Self.Category_Trailer" Multiplicity="1" />
+          <End Role="Vehicles" Type="Self.Vehicles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Category_Trailer">
+              <PropertyRef Name="Code_Trailer" />
+            </Principal>
+            <Dependent Role="Vehicles">
+              <PropertyRef Name="Code_Category" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Vehicles__Code_E__4CA06362">
+          <End Role="Executors" Type="Self.Executors" Multiplicity="1" />
+          <End Role="Vehicles" Type="Self.Vehicles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Executors">
+              <PropertyRef Name="Code_Executor" />
+            </Principal>
+            <Dependent Role="Vehicles">
+              <PropertyRef Name="Code_Executor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Хранилище LogisticCompanyModelContainer">
+          <EntitySet Name="Category_Trailer" EntityType="Self.Category_Trailer" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Consignees" EntityType="Self.Consignees" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Drivers" EntityType="Self.Drivers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Executors" EntityType="Self.Executors" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Requests" EntityType="Self.Requests" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Shippers" EntityType="Self.Shippers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Users_Gender" EntityType="Self.Users_Gender" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Users_Roles" EntityType="Self.Users_Roles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Vehicles" EntityType="Self.Vehicles" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__Drivers__Code_Ex__47DBAE45" Association="Self.FK__Drivers__Code_Ex__47DBAE45">
+            <End Role="Executors" EntitySet="Executors" />
+            <End Role="Drivers" EntitySet="Drivers" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Requests__Code_C__5812160E" Association="Self.FK__Requests__Code_C__5812160E">
+            <End Role="Consignees" EntitySet="Consignees" />
+            <End Role="Requests" EntitySet="Requests" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Requests__Code_D__5535A963" Association="Self.FK__Requests__Code_D__5535A963">
+            <End Role="Drivers" EntitySet="Drivers" />
+            <End Role="Requests" EntitySet="Requests" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Requests__Code_E__5441852A" Association="Self.FK__Requests__Code_E__5441852A">
+            <End Role="Executors" EntitySet="Executors" />
+            <End Role="Requests" EntitySet="Requests" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Requests__Code_S__571DF1D5" Association="Self.FK__Requests__Code_S__571DF1D5">
+            <End Role="Shippers" EntitySet="Shippers" />
+            <End Role="Requests" EntitySet="Requests" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Requests__Code_V__5629CD9C" Association="Self.FK__Requests__Code_V__5629CD9C">
+            <End Role="Vehicles" EntitySet="Vehicles" />
+            <End Role="Requests" EntitySet="Requests" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Users__Code_Gend__4222D4EF" Association="Self.FK__Users__Code_Gend__4222D4EF">
+            <End Role="Users_Gender" EntitySet="Users_Gender" />
+            <End Role="Users" EntitySet="Users" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Users__Code_Role__4316F928" Association="Self.FK__Users__Code_Role__4316F928">
+            <End Role="Users_Roles" EntitySet="Users_Roles" />
+            <End Role="Users" EntitySet="Users" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Vehicles__Code_C__4D94879B" Association="Self.FK__Vehicles__Code_C__4D94879B">
+            <End Role="Category_Trailer" EntitySet="Category_Trailer" />
+            <End Role="Vehicles" EntitySet="Vehicles" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Vehicles__Code_E__4CA06362" Association="Self.FK__Vehicles__Code_E__4CA06362">
+            <End Role="Executors" EntitySet="Executors" />
+            <End Role="Vehicles" EntitySet="Vehicles" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="LogisticCompanyModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Category_Trailer">
+          <Key>
+            <PropertyRef Name="Code_Trailer" />
+          </Key>
+          <Property Name="Code_Trailer" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name_Trailer" Type="String" MaxLength="21" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Vehicles" Relationship="Self.FK__Vehicles__Code_C__4D94879B" FromRole="Category_Trailer" ToRole="Vehicles" />
+        </EntityType>
+        <EntityType Name="Consignees">
+          <Key>
+            <PropertyRef Name="Code_Consignee" />
+          </Key>
+          <Property Name="Code_Consignee" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name_Company" Type="String" MaxLength="51" FixedLength="false" Unicode="true" />
+          <Property Name="Name_Responsible" Type="String" MaxLength="21" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Surname_Responsible" Type="String" MaxLength="21" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Midname_Responsible" Type="String" MaxLength="21" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Number_Responsible" Type="String" MaxLength="13" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Requests" Relationship="Self.FK__Requests__Code_C__5812160E" FromRole="Consignees" ToRole="Requests" />
+        </EntityType>
+        <EntityType Name="Drivers">
+          <Key>
+            <PropertyRef Name="Code_Driver" />
+          </Key>
+          <Property Name="Code_Driver" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Code_Executor" Type="Int32" Nullable="false" />
+          <Property Name="Name_Driver" Type="String" MaxLength="21" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Surname_Driver" Type="String" MaxLength="21" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Midname_Driver" Type="String" MaxLength="21" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Telephone_Number_Executor" Type="String" MaxLength="13" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Executors" Relationship="Self.FK__Drivers__Code_Ex__47DBAE45" FromRole="Drivers" ToRole="Executors" />
+          <NavigationProperty Name="Requests" Relationship="Self.FK__Requests__Code_D__5535A963" FromRole="Drivers" ToRole="Requests" />
+        </EntityType>
+        <EntityType Name="Executors">
+          <Key>
+            <PropertyRef Name="Code_Executor" />
+          </Key>
+          <Property Name="Code_Executor" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name_Executor" Type="String" MaxLength="21" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Surname_Executor" Type="String" MaxLength="21" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Midname_Executor" Type="String" MaxLength="21" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Telephone_Number_Executor" Type="String" MaxLength="13" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Drivers" Relationship="Self.FK__Drivers__Code_Ex__47DBAE45" FromRole="Executors" ToRole="Drivers" />
+          <NavigationProperty Name="Requests" Relationship="Self.FK__Requests__Code_E__5441852A" FromRole="Executors" ToRole="Requests" />
+          <NavigationProperty Name="Vehicles" Relationship="Self.FK__Vehicles__Code_E__4CA06362" FromRole="Executors" ToRole="Vehicles" />
+        </EntityType>
+        <EntityType Name="Requests">
+          <Key>
+            <PropertyRef Name="Code_Request" />
+          </Key>
+          <Property Name="Code_Request" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Code_Executor" Type="Int32" />
+          <Property Name="Code_Driver" Type="Int32" />
+          <Property Name="Code_Vehicle" Type="Int32" />
+          <Property Name="Date_Loading" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Place_Loading" Type="String" MaxLength="151" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Code_Shipper" Type="Int32" />
+          <Property Name="Name_Cargo" Type="String" MaxLength="101" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Transportation_Conditions" Type="String" MaxLength="151" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Date_Unloading" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Place_Unloading" Type="String" MaxLength="151" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Code_Consignee" Type="Int32" />
+          <Property Name="Route_Towns" Type="String" MaxLength="51" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Transportation_Format" Type="String" MaxLength="101" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Amount_Payment" Type="String" MaxLength="13" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Payment_Conditions" Type="String" MaxLength="101" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Consignees" Relationship="Self.FK__Requests__Code_C__5812160E" FromRole="Requests" ToRole="Consignees" />
+          <NavigationProperty Name="Drivers" Relationship="Self.FK__Requests__Code_D__5535A963" FromRole="Requests" ToRole="Drivers" />
+          <NavigationProperty Name="Executors" Relationship="Self.FK__Requests__Code_E__5441852A" FromRole="Requests" ToRole="Executors" />
+          <NavigationProperty Name="Shippers" Relationship="Self.FK__Requests__Code_S__571DF1D5" FromRole="Requests" ToRole="Shippers" />
+          <NavigationProperty Name="Vehicles" Relationship="Self.FK__Requests__Code_V__5629CD9C" FromRole="Requests" ToRole="Vehicles" />
+        </EntityType>
+        <EntityType Name="Shippers">
+          <Key>
+            <PropertyRef Name="Code_Shipper" />
+          </Key>
+          <Property Name="Code_Shipper" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name_Company" Type="String" MaxLength="51" FixedLength="false" Unicode="true" />
+          <Property Name="Name_Responsible" Type="String" MaxLength="21" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Surname_Responsible" Type="String" MaxLength="21" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Midname_Responsible" Type="String" MaxLength="21" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Number_Responsible" Type="String" MaxLength="13" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Requests" Relationship="Self.FK__Requests__Code_S__571DF1D5" FromRole="Shippers" ToRole="Requests" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="Code_User" />
+          </Key>
+          <Property Name="Code_User" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name_User" Type="String" MaxLength="21" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Surname_User" Type="String" MaxLength="21" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Midname_User" Type="String" MaxLength="21" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Login_User" Type="String" MaxLength="21" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Password_User" Type="Int32" Nullable="false" />
+          <Property Name="Code_Gender" Type="Int32" Nullable="false" />
+          <Property Name="Date_Birthday_User" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Code_Role" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Users_Gender" Relationship="Self.FK__Users__Code_Gend__4222D4EF" FromRole="Users" ToRole="Users_Gender" />
+          <NavigationProperty Name="Users_Roles" Relationship="Self.FK__Users__Code_Role__4316F928" FromRole="Users" ToRole="Users_Roles" />
+        </EntityType>
+        <EntityType Name="Users_Gender">
+          <Key>
+            <PropertyRef Name="Code_Gender" />
+          </Key>
+          <Property Name="Code_Gender" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name_Gender" Type="String" MaxLength="8" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Users" Relationship="Self.FK__Users__Code_Gend__4222D4EF" FromRole="Users_Gender" ToRole="Users" />
+        </EntityType>
+        <EntityType Name="Users_Roles">
+          <Key>
+            <PropertyRef Name="Code_Role" />
+          </Key>
+          <Property Name="Code_Role" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name_Role" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Users" Relationship="Self.FK__Users__Code_Role__4316F928" FromRole="Users_Roles" ToRole="Users" />
+        </EntityType>
+        <EntityType Name="Vehicles">
+          <Key>
+            <PropertyRef Name="Code_Vehicle" />
+          </Key>
+          <Property Name="Code_Vehicle" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Code_Executor" Type="Int32" Nullable="false" />
+          <Property Name="Code_Category" Type="Int32" Nullable="false" />
+          <Property Name="Brand_Vehicle" Type="String" MaxLength="21" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Model_Vehicle" Type="String" MaxLength="21" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Length_Vehicle" Type="Single" Nullable="false" />
+          <Property Name="Width_Vehicle" Type="Single" Nullable="false" />
+          <Property Name="Height_Vehicle" Type="Single" Nullable="false" />
+          <Property Name="Tonnage_Vehicle" Type="Single" Nullable="false" />
+          <Property Name="Volume_Vehicle" Type="Single" Nullable="false" />
+          <Property Name="Number_Vehicle" Type="Single" Nullable="false" />
+          <NavigationProperty Name="Category_Trailer" Relationship="Self.FK__Vehicles__Code_C__4D94879B" FromRole="Vehicles" ToRole="Category_Trailer" />
+          <NavigationProperty Name="Executors" Relationship="Self.FK__Vehicles__Code_E__4CA06362" FromRole="Vehicles" ToRole="Executors" />
+          <NavigationProperty Name="Requests" Relationship="Self.FK__Requests__Code_V__5629CD9C" FromRole="Vehicles" ToRole="Requests" />
+        </EntityType>
+        <Association Name="FK__Vehicles__Code_C__4D94879B">
+          <End Role="Category_Trailer" Type="Self.Category_Trailer" Multiplicity="1" />
+          <End Role="Vehicles" Type="Self.Vehicles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Category_Trailer">
+              <PropertyRef Name="Code_Trailer" />
+            </Principal>
+            <Dependent Role="Vehicles">
+              <PropertyRef Name="Code_Category" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Requests__Code_C__5812160E">
+          <End Role="Consignees" Type="Self.Consignees" Multiplicity="0..1" />
+          <End Role="Requests" Type="Self.Requests" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Consignees">
+              <PropertyRef Name="Code_Consignee" />
+            </Principal>
+            <Dependent Role="Requests">
+              <PropertyRef Name="Code_Consignee" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Drivers__Code_Ex__47DBAE45">
+          <End Role="Executors" Type="Self.Executors" Multiplicity="1" />
+          <End Role="Drivers" Type="Self.Drivers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Executors">
+              <PropertyRef Name="Code_Executor" />
+            </Principal>
+            <Dependent Role="Drivers">
+              <PropertyRef Name="Code_Executor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Requests__Code_D__5535A963">
+          <End Role="Drivers" Type="Self.Drivers" Multiplicity="0..1" />
+          <End Role="Requests" Type="Self.Requests" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Drivers">
+              <PropertyRef Name="Code_Driver" />
+            </Principal>
+            <Dependent Role="Requests">
+              <PropertyRef Name="Code_Driver" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Requests__Code_E__5441852A">
+          <End Role="Executors" Type="Self.Executors" Multiplicity="0..1" />
+          <End Role="Requests" Type="Self.Requests" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Executors">
+              <PropertyRef Name="Code_Executor" />
+            </Principal>
+            <Dependent Role="Requests">
+              <PropertyRef Name="Code_Executor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Vehicles__Code_E__4CA06362">
+          <End Role="Executors" Type="Self.Executors" Multiplicity="1" />
+          <End Role="Vehicles" Type="Self.Vehicles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Executors">
+              <PropertyRef Name="Code_Executor" />
+            </Principal>
+            <Dependent Role="Vehicles">
+              <PropertyRef Name="Code_Executor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Requests__Code_S__571DF1D5">
+          <End Role="Shippers" Type="Self.Shippers" Multiplicity="0..1" />
+          <End Role="Requests" Type="Self.Requests" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Shippers">
+              <PropertyRef Name="Code_Shipper" />
+            </Principal>
+            <Dependent Role="Requests">
+              <PropertyRef Name="Code_Shipper" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Requests__Code_V__5629CD9C">
+          <End Role="Vehicles" Type="Self.Vehicles" Multiplicity="0..1" />
+          <End Role="Requests" Type="Self.Requests" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Vehicles">
+              <PropertyRef Name="Code_Vehicle" />
+            </Principal>
+            <Dependent Role="Requests">
+              <PropertyRef Name="Code_Vehicle" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Users__Code_Gend__4222D4EF">
+          <End Role="Users_Gender" Type="Self.Users_Gender" Multiplicity="1" />
+          <End Role="Users" Type="Self.Users" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users_Gender">
+              <PropertyRef Name="Code_Gender" />
+            </Principal>
+            <Dependent Role="Users">
+              <PropertyRef Name="Code_Gender" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Users__Code_Role__4316F928">
+          <End Role="Users_Roles" Type="Self.Users_Roles" Multiplicity="1" />
+          <End Role="Users" Type="Self.Users" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users_Roles">
+              <PropertyRef Name="Code_Role" />
+            </Principal>
+            <Dependent Role="Users">
+              <PropertyRef Name="Code_Role" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="LogisticCompanyEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Category_Trailer" EntityType="Self.Category_Trailer" />
+          <EntitySet Name="Consignees" EntityType="Self.Consignees" />
+          <EntitySet Name="Drivers" EntityType="Self.Drivers" />
+          <EntitySet Name="Executors" EntityType="Self.Executors" />
+          <EntitySet Name="Requests" EntityType="Self.Requests" />
+          <EntitySet Name="Shippers" EntityType="Self.Shippers" />
+          <EntitySet Name="Users" EntityType="Self.Users" />
+          <EntitySet Name="Users_Gender" EntityType="Self.Users_Gender" />
+          <EntitySet Name="Users_Roles" EntityType="Self.Users_Roles" />
+          <EntitySet Name="Vehicles" EntityType="Self.Vehicles" />
+          <AssociationSet Name="FK__Vehicles__Code_C__4D94879B" Association="Self.FK__Vehicles__Code_C__4D94879B">
+            <End Role="Category_Trailer" EntitySet="Category_Trailer" />
+            <End Role="Vehicles" EntitySet="Vehicles" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Requests__Code_C__5812160E" Association="Self.FK__Requests__Code_C__5812160E">
+            <End Role="Consignees" EntitySet="Consignees" />
+            <End Role="Requests" EntitySet="Requests" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Drivers__Code_Ex__47DBAE45" Association="Self.FK__Drivers__Code_Ex__47DBAE45">
+            <End Role="Executors" EntitySet="Executors" />
+            <End Role="Drivers" EntitySet="Drivers" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Requests__Code_D__5535A963" Association="Self.FK__Requests__Code_D__5535A963">
+            <End Role="Drivers" EntitySet="Drivers" />
+            <End Role="Requests" EntitySet="Requests" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Requests__Code_E__5441852A" Association="Self.FK__Requests__Code_E__5441852A">
+            <End Role="Executors" EntitySet="Executors" />
+            <End Role="Requests" EntitySet="Requests" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Vehicles__Code_E__4CA06362" Association="Self.FK__Vehicles__Code_E__4CA06362">
+            <End Role="Executors" EntitySet="Executors" />
+            <End Role="Vehicles" EntitySet="Vehicles" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Requests__Code_S__571DF1D5" Association="Self.FK__Requests__Code_S__571DF1D5">
+            <End Role="Shippers" EntitySet="Shippers" />
+            <End Role="Requests" EntitySet="Requests" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Requests__Code_V__5629CD9C" Association="Self.FK__Requests__Code_V__5629CD9C">
+            <End Role="Vehicles" EntitySet="Vehicles" />
+            <End Role="Requests" EntitySet="Requests" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Users__Code_Gend__4222D4EF" Association="Self.FK__Users__Code_Gend__4222D4EF">
+            <End Role="Users_Gender" EntitySet="Users_Gender" />
+            <End Role="Users" EntitySet="Users" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Users__Code_Role__4316F928" Association="Self.FK__Users__Code_Role__4316F928">
+            <End Role="Users_Roles" EntitySet="Users_Roles" />
+            <End Role="Users" EntitySet="Users" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Хранилище LogisticCompanyModelContainer" CdmEntityContainer="LogisticCompanyEntities">
+          <EntitySetMapping Name="Category_Trailer">
+            <EntityTypeMapping TypeName="LogisticCompanyModel.Category_Trailer">
+              <MappingFragment StoreEntitySet="Category_Trailer">
+                <ScalarProperty Name="Code_Trailer" ColumnName="Code_Trailer" />
+                <ScalarProperty Name="Name_Trailer" ColumnName="Name_Trailer" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Consignees">
+            <EntityTypeMapping TypeName="LogisticCompanyModel.Consignees">
+              <MappingFragment StoreEntitySet="Consignees">
+                <ScalarProperty Name="Code_Consignee" ColumnName="Code_Consignee" />
+                <ScalarProperty Name="Name_Company" ColumnName="Name_Company" />
+                <ScalarProperty Name="Name_Responsible" ColumnName="Name_Responsible" />
+                <ScalarProperty Name="Surname_Responsible" ColumnName="Surname_Responsible" />
+                <ScalarProperty Name="Midname_Responsible" ColumnName="Midname_Responsible" />
+                <ScalarProperty Name="Number_Responsible" ColumnName="Number_Responsible" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Drivers">
+            <EntityTypeMapping TypeName="LogisticCompanyModel.Drivers">
+              <MappingFragment StoreEntitySet="Drivers">
+                <ScalarProperty Name="Code_Driver" ColumnName="Code_Driver" />
+                <ScalarProperty Name="Code_Executor" ColumnName="Code_Executor" />
+                <ScalarProperty Name="Name_Driver" ColumnName="Name_Driver" />
+                <ScalarProperty Name="Surname_Driver" ColumnName="Surname_Driver" />
+                <ScalarProperty Name="Midname_Driver" ColumnName="Midname_Driver" />
+                <ScalarProperty Name="Telephone_Number_Executor" ColumnName="Telephone_Number_Executor" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Executors">
+            <EntityTypeMapping TypeName="LogisticCompanyModel.Executors">
+              <MappingFragment StoreEntitySet="Executors">
+                <ScalarProperty Name="Code_Executor" ColumnName="Code_Executor" />
+                <ScalarProperty Name="Name_Executor" ColumnName="Name_Executor" />
+                <ScalarProperty Name="Surname_Executor" ColumnName="Surname_Executor" />
+                <ScalarProperty Name="Midname_Executor" ColumnName="Midname_Executor" />
+                <ScalarProperty Name="Telephone_Number_Executor" ColumnName="Telephone_Number_Executor" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Requests">
+            <EntityTypeMapping TypeName="LogisticCompanyModel.Requests">
+              <MappingFragment StoreEntitySet="Requests">
+                <ScalarProperty Name="Code_Request" ColumnName="Code_Request" />
+                <ScalarProperty Name="Code_Executor" ColumnName="Code_Executor" />
+                <ScalarProperty Name="Code_Driver" ColumnName="Code_Driver" />
+                <ScalarProperty Name="Code_Vehicle" ColumnName="Code_Vehicle" />
+                <ScalarProperty Name="Date_Loading" ColumnName="Date_Loading" />
+                <ScalarProperty Name="Place_Loading" ColumnName="Place_Loading" />
+                <ScalarProperty Name="Code_Shipper" ColumnName="Code_Shipper" />
+                <ScalarProperty Name="Name_Cargo" ColumnName="Name_Cargo" />
+                <ScalarProperty Name="Transportation_Conditions" ColumnName="Transportation_Conditions" />
+                <ScalarProperty Name="Date_Unloading" ColumnName="Date_Unloading" />
+                <ScalarProperty Name="Place_Unloading" ColumnName="Place_Unloading" />
+                <ScalarProperty Name="Code_Consignee" ColumnName="Code_Consignee" />
+                <ScalarProperty Name="Route_Towns" ColumnName="Route_Towns" />
+                <ScalarProperty Name="Transportation_Format" ColumnName="Transportation_Format" />
+                <ScalarProperty Name="Amount_Payment" ColumnName="Amount_Payment" />
+                <ScalarProperty Name="Payment_Conditions" ColumnName="Payment_Conditions" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Shippers">
+            <EntityTypeMapping TypeName="LogisticCompanyModel.Shippers">
+              <MappingFragment StoreEntitySet="Shippers">
+                <ScalarProperty Name="Code_Shipper" ColumnName="Code_Shipper" />
+                <ScalarProperty Name="Name_Company" ColumnName="Name_Company" />
+                <ScalarProperty Name="Name_Responsible" ColumnName="Name_Responsible" />
+                <ScalarProperty Name="Surname_Responsible" ColumnName="Surname_Responsible" />
+                <ScalarProperty Name="Midname_Responsible" ColumnName="Midname_Responsible" />
+                <ScalarProperty Name="Number_Responsible" ColumnName="Number_Responsible" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="LogisticCompanyModel.Users">
+              <MappingFragment StoreEntitySet="Users">
+                <ScalarProperty Name="Code_User" ColumnName="Code_User" />
+                <ScalarProperty Name="Name_User" ColumnName="Name_User" />
+                <ScalarProperty Name="Surname_User" ColumnName="Surname_User" />
+                <ScalarProperty Name="Midname_User" ColumnName="Midname_User" />
+                <ScalarProperty Name="Login_User" ColumnName="Login_User" />
+                <ScalarProperty Name="Password_User" ColumnName="Password_User" />
+                <ScalarProperty Name="Code_Gender" ColumnName="Code_Gender" />
+                <ScalarProperty Name="Date_Birthday_User" ColumnName="Date_Birthday_User" />
+                <ScalarProperty Name="Code_Role" ColumnName="Code_Role" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users_Gender">
+            <EntityTypeMapping TypeName="LogisticCompanyModel.Users_Gender">
+              <MappingFragment StoreEntitySet="Users_Gender">
+                <ScalarProperty Name="Code_Gender" ColumnName="Code_Gender" />
+                <ScalarProperty Name="Name_Gender" ColumnName="Name_Gender" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users_Roles">
+            <EntityTypeMapping TypeName="LogisticCompanyModel.Users_Roles">
+              <MappingFragment StoreEntitySet="Users_Roles">
+                <ScalarProperty Name="Code_Role" ColumnName="Code_Role" />
+                <ScalarProperty Name="Name_Role" ColumnName="Name_Role" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Vehicles">
+            <EntityTypeMapping TypeName="LogisticCompanyModel.Vehicles">
+              <MappingFragment StoreEntitySet="Vehicles">
+                <ScalarProperty Name="Code_Vehicle" ColumnName="Code_Vehicle" />
+                <ScalarProperty Name="Code_Executor" ColumnName="Code_Executor" />
+                <ScalarProperty Name="Code_Category" ColumnName="Code_Category" />
+                <ScalarProperty Name="Brand_Vehicle" ColumnName="Brand_Vehicle" />
+                <ScalarProperty Name="Model_Vehicle" ColumnName="Model_Vehicle" />
+                <ScalarProperty Name="Length_Vehicle" ColumnName="Length_Vehicle" />
+                <ScalarProperty Name="Width_Vehicle" ColumnName="Width_Vehicle" />
+                <ScalarProperty Name="Height_Vehicle" ColumnName="Height_Vehicle" />
+                <ScalarProperty Name="Tonnage_Vehicle" ColumnName="Tonnage_Vehicle" />
+                <ScalarProperty Name="Volume_Vehicle" ColumnName="Volume_Vehicle" />
+                <ScalarProperty Name="Number_Vehicle" ColumnName="Number_Vehicle" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Нет" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
