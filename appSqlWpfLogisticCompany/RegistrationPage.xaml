@@ -25,7 +25,8 @@
                 <DatePicker Name = "userBirthdayRegistrationDP"></DatePicker>
 
                 <TextBlock Text="Пол: "/>
-                <ComboBox Name="genderCB" Width="100" Height="20"></ComboBox>
+                <RadioButton Name="genderRBMale" Width="100" Height="20">Мужской</RadioButton>
+                <RadioButton Name="genderRBFemale" Width="100" Height="20">Женский</RadioButton>
 
                 <TextBlock Text="Роль: "/>
                 <ComboBox Name="roleCB" Width="100" Height="20"></ComboBox>
