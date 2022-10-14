@@ -35,7 +35,7 @@
                 <TextBox Name="loginUserRegistrationTB" Width="100" Height="20"></TextBox>
 
                 <TextBlock Text="Пароль: "/>
-                <TextBox Name="passwordUserRegistrationTB" Width="100" Height="20"></TextBox>
+                <PasswordBox Name="passwordUserRegistrationTB" Width="100" Height="20"></PasswordBox>
                 
                 <Button Name="registrationButton" Click="registrationButton_Click">Зарегистрироваться</Button>
                 <Button Name="backButton" Click="backButton_Click">Назад</Button>

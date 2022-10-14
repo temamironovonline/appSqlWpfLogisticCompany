@@ -18,12 +18,14 @@ namespace appSqlWpfLogisticCompany
     /// <summary>
     /// Логика взаимодействия для RegistrationAuthorizationPage.xaml
     /// </summary>
-    public partial class RegistrationAuthorizationPage : Page
+    public partial class AuthorizationPage : Page
     {
-        public RegistrationAuthorizationPage()
+        public AuthorizationPage()
         {
             InitializeComponent();
         }
+
+      
 
         private void registrationButton_Click(object sender, RoutedEventArgs e)
         {
