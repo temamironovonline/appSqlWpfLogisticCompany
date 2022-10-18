@@ -5,13 +5,15 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:appSqlWpfLogisticCompany"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="600" Width="1100">
+    <Window.Background>
+        <ImageBrush ImageSource="Resources/truck.jpg" Stretch="UniformToFill"/>
+    </Window.Background>
+    
     <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="65"></RowDefinition>
-            <RowDefinition></RowDefinition>
-        </Grid.RowDefinitions>
-
+        
+        <Rectangle Fill="#606EB2" Opacity="0.8"></Rectangle>
+        
         <Frame Name="MainFraim" Grid.Row="1" NavigationUIVisibility="Hidden">
             
         </Frame>

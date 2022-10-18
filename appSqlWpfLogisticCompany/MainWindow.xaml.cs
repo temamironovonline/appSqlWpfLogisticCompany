@@ -25,7 +25,7 @@ namespace appSqlWpfLogisticCompany
             InitializeComponent();
             DataBaseConnection.LogisticCompanyDB = new LogisticCompanyEntities();
             forFrameClass.publicFrame = MainFraim;
-            forFrameClass.publicFrame.Navigate(new AuthorizationPage());
+            forFrameClass.publicFrame.Navigate(new RegistrationAuthorizationPage());
         }
     }
 }
