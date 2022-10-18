@@ -53,5 +53,45 @@ namespace appSqlWpfLogisticCompany
 
             }
         }
+
+        private void userLoginTB_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            var brushConverter = new BrushConverter();
+            if (userLoginTB.Text == "Логин") userLoginTB.Text = "";
+            userLoginTB.Foreground = (Brush)brushConverter.ConvertFrom("#FF6F97EE");
+            polylineLogin.Stroke = (Brush)brushConverter.ConvertFrom("#FF6F97EE");
+        }
+
+        private void userLoginTB_LostFocus(object sender, RoutedEventArgs e)
+        {
+            var brushConverter = new BrushConverter();
+            if (userLoginTB.Text == "") userLoginTB.Text = "Логин";
+            userLoginTB.Foreground = (Brush)brushConverter.ConvertFrom("#C7C9C7");
+            polylineLogin.Stroke = (Brush)brushConverter.ConvertFrom("#C7C9C7");
+        }
+
+        private void userPasswordTB_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            var brushConverter = new BrushConverter();
+            if (userPasswordTB.Text == "Пароль") userPasswordTB.Text = "";
+            
+            userPasswordTB.Foreground = (Brush)brushConverter.ConvertFrom("#FF6F97EE");
+            polylinePassword.Stroke = (Brush)brushConverter.ConvertFrom("#FF6F97EE");
+        }
+
+        private void userPasswordTB_LostFocus(object sender, RoutedEventArgs e)
+        {
+            var brushConverter = new BrushConverter();
+            if (userPasswordTB.Text == "") userPasswordTB.Text = "Пароль";
+            
+            userPasswordTB.Foreground = (Brush)brushConverter.ConvertFrom("#C7C9C7");
+            polylinePassword.Stroke = (Brush)brushConverter.ConvertFrom("#C7C9C7");
+        }
+
+        private void userPasswordTB_PreviewKeyDown(object sender, KeyEventArgs e)
+        {
+            string password = userPasswordTB.Text;
+           
+        }
     }
 }

@@ -31,10 +31,30 @@
         <Style x:Key="mainButtons" TargetType="Button">
             <Setter Property="FontFamily" Value="Google Sans"/>
             <Setter Property="Width" Value="150"/>
-            <Setter Property="Height" Value="32"/>
+            <Setter Property="Height" Value="35"/>
             <Setter Property="BorderThickness" Value="0"/>
             <Setter Property="Background" Value="#FF6F97EE"/>
             <Setter Property="Foreground" Value="White"/>
         </Style>
+
+        <Style x:Key="decorationRectangle" TargetType="Rectangle">
+            <Setter Property="Width" Value="320"/>
+            <Setter Property="Height" Value="370"/>
+            <Setter Property="RadiusX" Value="20"/>
+            <Setter Property="RadiusY" Value="20"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+        </Style>
+
+        <Style x:Key="polylineField" TargetType="Polyline">
+            <Setter Property="Stroke" Value="#C7C9C7"/>
+            <Setter Property="Margin" Value="0, 3, 0, 0"/>
+            <Setter Property="StrokeThickness" Value="1"/>
+            <Setter Property="StrokeEndLineCap" Value="Flat"/>
+            <Setter Property="SnapsToDevicePixels" Value="True"/>
+            <Setter Property="Points" Value="0,2 200,2"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+        </Style>
+
+
     </Application.Resources>
 </Application>
