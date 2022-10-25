@@ -19,13 +19,13 @@
         <!--///////////////////-->
 
         
-        <Image Width="80" Height="80" Margin="30,20,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Source="Resources/noLogo.png"></Image>
+        <Image Width="80" Height="80" Margin="30,20,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Source="../Resources/noLogo.png"></Image>
 
         <!--Левая часть разметки с текстом о приветствии-->
         
         <StackPanel VerticalAlignment="Center" Grid.Column="0">
-        <TextBlock Text="МЫ РАДЫ ВИДЕТЬ ТЕБЯ!" Style="{StaticResource textBlockWhite}" FontSize="33" FontWeight="Bold"/>
-        <TextBlock Text="Станем лучшими в своем деле вместе с тобой" Style="{StaticResource textBlockWhite}" FontSize="27" TextWrapping="WrapWithOverflow"/>
+        <TextBlock Name="loginFormText1" Style="{StaticResource textBlockWhite}" FontSize="33" FontWeight="Bold"/>
+        <TextBlock Name="loginFormText2" Style="{StaticResource textBlockWhite}" FontSize="27" TextWrapping="WrapWithOverflow"/>
         </StackPanel>
         
         <!--////////////////////////////////////////////-->
@@ -56,12 +56,12 @@
         <StackPanel Width="200" Height="350" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center">
 
             <StackPanel>
-                <TextBlock FontFamily="Google Sans Medium" HorizontalAlignment="Center" Margin="0,40,0,0" FontSize="18" Foreground="#FF6F97EE">АВТОРИЗАЦИЯ</TextBlock>
+                <TextBlock Name="authorizationHeader" FontFamily="Google Sans Medium" HorizontalAlignment="Center" Margin="0,40,0,0" FontSize="18" Foreground="#FF6F97EE"></TextBlock>
 
                 <!--Картинка и логин-->
                 <WrapPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="0,50,0,0" >
-                    <Image Name="userLoginIcon"  Margin="0,0,5,0" Width="20" Height="20" Source="Resources/userlogin.png"/>
-                    <TextBox PreviewMouseLeftButtonDown="userLoginTB_PreviewMouseLeftButtonDown" LostFocus="userLoginTB_LostFocus"  Name="userLoginTB" Style="{StaticResource textBoxStyle}" Padding="2" Text="Логин" FontSize="13"></TextBox>
+                    <Image Name="userLoginIcon"  Margin="0,0,5,0" Width="20" Height="20" Source="../Resources/userlogin.png"/>
+                    <TextBox PreviewMouseLeftButtonDown="userLoginTB_PreviewMouseLeftButtonDown" LostFocus="userLoginTB_LostFocus"  Name="userLoginTextBox" Style="{StaticResource textBoxStyle}" Padding="2" FontSize="13"></TextBox>
                 </WrapPanel>
 
                 <Polyline Name="polylineLogin" Style="{StaticResource polylineField}"></Polyline>
@@ -69,9 +69,9 @@
 
                 <!--Картинка и пароль-->
                 <WrapPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="0, 35,0,0">
-                    <Image Name="userPasswordIcon" Margin="0,0,5,0" Width="20" Height="20" Source="Resources/passwordlogin.png"/>
-                    <TextBox Name="userPasswordTB" PreviewMouseLeftButtonDown="userPasswordTB_PreviewMouseLeftButtonDown" Style="{StaticResource textBoxStyle}" Text="Пароль" Padding="2" FontSize="13"></TextBox>
-                    <PasswordBox PreviewMouseLeftButtonDown="userPasswordPB_PreviewMouseLeftButtonDown" LostFocus="userPasswordPB_LostFocus" Visibility="Collapsed" Name="userPasswordPB" Style="{StaticResource passwordBoxStyle}"></PasswordBox>
+                    <Image Name="userPasswordIcon" Margin="0,0,5,0" Width="20" Height="20" Source="../Resources/passwordlogin.png"/>
+                    <TextBox Name="userPasswordTextBox" PreviewMouseLeftButtonDown="userPasswordTB_PreviewMouseLeftButtonDown" Style="{StaticResource textBoxStyle}" Padding="2" FontSize="13"></TextBox>
+                    <PasswordBox Name="userPasswordPasswordBox" PreviewMouseLeftButtonDown="userPasswordPB_PreviewMouseLeftButtonDown" LostFocus="userPasswordPB_LostFocus" Visibility="Collapsed" Style="{StaticResource passwordBoxStyle}"></PasswordBox>
                 </WrapPanel>
 
                 <Polyline Name="polylinePassword" Style="{StaticResource polylineField}"></Polyline>
@@ -84,9 +84,8 @@
                             <Setter Property="CornerRadius" Value="18"/>
                         </Style>
                     </Button.Resources>
-                    Войти
                 </Button>
-                <Button Name="registrationButton" Click="registrationButton_Click" Margin="0,10,0,0" Width="80" Background="Transparent" BorderThickness="0" FontFamily="Google Sans" Foreground="#C7C9C7" FontSize="13">Регистрация</Button>
+                <Button Name="registrationButton" Click="registrationButton_Click" Margin="0,10,0,0" Width="80" Background="Transparent" BorderThickness="0" FontFamily="Google Sans" Foreground="#C7C9C7" FontSize="13"></Button>
             </StackPanel>
         </StackPanel>
         <!--///////////////////////////-->

@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Xml.Linq;
 
 namespace appSqlWpfLogisticCompany
 {
@@ -23,6 +24,13 @@ namespace appSqlWpfLogisticCompany
         public RegistrationAuthorizationPage()
         {
             InitializeComponent();
+            loginFormText1.Text = ConnectingXML.xdoc.Root.Element("authorizationLeftText1").Value;
+            loginFormText2.Text = ConnectingXML.xdoc.Root.Element("authorizationLeftText2").Value;
+            authorizationHeader.Text = ConnectingXML.xdoc.Root.Element("authorizationHeader").Value;
+            userLoginTextBox.Text = ConnectingXML.xdoc.Root.Element("authorizationLogin").Value;
+            userPasswordTextBox.Text = ConnectingXML.xdoc.Root.Element("authorizationPassword").Value;
+            loginButton.Content = ConnectingXML.xdoc.Root.Element("authorizationButtonSignIn").Value;
+            registrationButton.Content = ConnectingXML.xdoc.Root.Element("authorizationButtonSignUp").Value;
         }
 
       
@@ -35,11 +43,11 @@ namespace appSqlWpfLogisticCompany
         private void loginButton_Click(object sender, RoutedEventArgs e) //Проверка пользователя при нажатии на кнопку "Войти"
         {
          
-            int checkPassword = userPasswordPB.Password.GetHashCode();
-            if(userLoginTB.Text == "Логин" || userPasswordPB.Password.ToString() == "") //Проверка на пустые поля "Логин" и "Пароль"
+            int checkPassword = userPasswordPasswordBox.Password.GetHashCode();
+            if(userLoginTextBox.Text == ConnectingXML.xdoc.Root.Element("authorizationLogin").Value || userPasswordPasswordBox.Password.ToString() == "") //Проверка на пустые поля "Логин" и "Пароль"
             {
-                if(userLoginTB.Text == "Логин") emptyLogin.Visibility = Visibility.Visible; //Показываем ошибку пустого логина
-                if (userPasswordPB.Password.ToString() == "")
+                if(userLoginTextBox.Text == ConnectingXML.xdoc.Root.Element("authorizationLogin").Value) emptyLogin.Visibility = Visibility.Visible; //Показываем ошибку пустого логина
+                if (userPasswordPasswordBox.Password.ToString() == "")
                 {
                     emptyPassword.Visibility = Visibility.Visible; //Показываем ошибку пустого пароля
                     loginButton.Margin = new Thickness(0, 35, 0, 0);
@@ -48,7 +56,7 @@ namespace appSqlWpfLogisticCompany
             }
             else 
             {
-                Users registratedUser = DataBaseConnection.LogisticCompanyDB.Users.FirstOrDefault(z => z.Login_User == userLoginTB.Text && z.Password_User == checkPassword);
+                Users registratedUser = DataBaseConnection.LogisticCompanyDB.Users.FirstOrDefault(z => z.Login_User == userPasswordTextBox.Text && z.Password_User == checkPassword);
                 if (registratedUser == null) //Если пользователя не существует (или неверные введенные данные)
                 {
                     wrongLoginPassword.Visibility = Visibility.Visible; //Показываем ошибку неверных данных
@@ -80,8 +88,8 @@ namespace appSqlWpfLogisticCompany
             }
             if (emptyLogin.Visibility == Visibility.Visible) emptyLogin.Visibility = Visibility.Collapsed; //Если ошибка пустого логина видна, то отключаем
             var brushConverter = new BrushConverter();
-            if (userLoginTB.Text == "Логин") userLoginTB.Text = "";
-            userLoginTB.Foreground = (Brush)brushConverter.ConvertFrom("#FF6F97EE");
+            if (userLoginTextBox.Text == ConnectingXML.xdoc.Root.Element("authorizationLogin").Value) userLoginTextBox.Text = "";
+            userLoginTextBox.Foreground = (Brush)brushConverter.ConvertFrom("#FF6F97EE");
             polylineLogin.Stroke = (Brush)brushConverter.ConvertFrom("#FF6F97EE");
             userLoginIcon.Source = new BitmapImage(new Uri(@"pack://application:,,,/Resources/userloginBlue.png"));
 
@@ -90,8 +98,8 @@ namespace appSqlWpfLogisticCompany
         private void userLoginTB_LostFocus(object sender, RoutedEventArgs e) //Событие при потере фокуса с поля ввода логина
         {
             var brushConverter = new BrushConverter();
-            if (userLoginTB.Text == "") userLoginTB.Text = "Логин";
-            userLoginTB.Foreground = (Brush)brushConverter.ConvertFrom("#C7C9C7");
+            if (userLoginTextBox.Text == "") userLoginTextBox.Text = ConnectingXML.xdoc.Root.Element("authorizationLogin").Value;
+            userLoginTextBox.Foreground = (Brush)brushConverter.ConvertFrom("#C7C9C7");
             polylineLogin.Stroke = (Brush)brushConverter.ConvertFrom("#C7C9C7");
             userLoginIcon.Source = new BitmapImage(new Uri(@"pack://application:,,,/Resources/userlogin.png"));
         }
@@ -104,10 +112,10 @@ namespace appSqlWpfLogisticCompany
                 loginButton.Margin = new Thickness(0, 40, 0, 0);
             }
             var brushConverter = new BrushConverter();
-            userPasswordTB.Visibility = Visibility.Collapsed;
-            userPasswordPB.Visibility = Visibility.Visible;
-            userPasswordPB.Focus();
-            userPasswordTB.Foreground = (Brush)brushConverter.ConvertFrom("#FF6F97EE");
+            userPasswordTextBox.Visibility = Visibility.Collapsed;
+            userPasswordPasswordBox.Visibility = Visibility.Visible;
+            userPasswordPasswordBox.Focus();
+            userPasswordTextBox.Foreground = (Brush)brushConverter.ConvertFrom("#FF6F97EE");
             polylinePassword.Stroke = (Brush)brushConverter.ConvertFrom("#FF6F97EE");
             userPasswordIcon.Source = new BitmapImage(new Uri(@"pack://application:,,,/Resources/passwordloginBlue.png"));
         }
@@ -127,12 +135,12 @@ namespace appSqlWpfLogisticCompany
         private void userPasswordPB_LostFocus(object sender, RoutedEventArgs e) //Событие при потере фокуса с поля ввода логина
         {
             var brushConverter = new BrushConverter();
-            if (userPasswordPB.Password.ToString() == "")
+            if (userPasswordPasswordBox.Password.ToString() == "")
             {
-                userPasswordPB.Visibility = Visibility.Collapsed;
-                userPasswordTB.Visibility = Visibility.Visible;
+                userPasswordPasswordBox.Visibility = Visibility.Collapsed;
+                userPasswordTextBox.Visibility = Visibility.Visible;
             }
-            userPasswordTB.Foreground = (Brush)brushConverter.ConvertFrom("#C7C9C7");
+            userPasswordTextBox.Foreground = (Brush)brushConverter.ConvertFrom("#C7C9C7");
             polylinePassword.Stroke = (Brush)brushConverter.ConvertFrom("#C7C9C7");
             userPasswordIcon.Source = new BitmapImage(new Uri(@"pack://application:,,,/Resources/passwordlogin.png"));
         }

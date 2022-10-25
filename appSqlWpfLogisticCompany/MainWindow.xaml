@@ -6,6 +6,7 @@
         xmlns:local="clr-namespace:appSqlWpfLogisticCompany"
         mc:Ignorable="d"
         Title="MainWindow" Height="600" Width="1000">
+
     <Window.Background>
         <ImageBrush ImageSource="Resources/truck.jpg" Stretch="UniformToFill"/>
     </Window.Background>
