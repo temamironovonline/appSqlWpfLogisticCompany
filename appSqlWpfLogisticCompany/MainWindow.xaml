@@ -11,10 +11,13 @@
     </Window.Background>
     
     <Grid>
-        
-        <Rectangle Fill="#606EB2" Opacity="0.8"></Rectangle>
-        
-        <Frame Name="MainFraim" Grid.Row="1" NavigationUIVisibility="Hidden">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Rectangle Fill="#606EB2" Grid.RowSpan="2" Opacity="0.8"></Rectangle>
+
+        <Frame Grid.RowSpan="2" Name="MainFraim" Grid.Row="1" NavigationUIVisibility="Hidden">
             
         </Frame>
     </Grid>

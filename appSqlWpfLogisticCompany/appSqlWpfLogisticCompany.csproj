@@ -183,6 +183,10 @@
       <DependentUpon>LogisticCompanyDiagram.edmx</DependentUpon>
       <LastGenOutput>Model1.cs</LastGenOutput>
     </Content>
+    <Resource Include="Resources\passwordloginRed.png" />
+    <Resource Include="Resources\userloginRed.png" />
+    <Resource Include="Resources\passwordloginBlue.png" />
+    <Resource Include="Resources\userloginBlue.png" />
     <Resource Include="Resources\noLogo.png" />
     <Resource Include="Resources\passwordlogin.png" />
     <Resource Include="Resources\userlogin.png" />

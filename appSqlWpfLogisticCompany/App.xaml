@@ -28,6 +28,14 @@
             <Setter Property="Foreground" Value="White"/>
         </Style>
 
+        <Style x:Key="errorTextBlock" TargetType="TextBlock">
+            <Setter Property="FontFamily" Value="Google Sans"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="Foreground" Value="#D62E2F"/>
+            <Setter Property="Margin" Value="0,5,0,0"/>
+            <Setter Property="Visibility" Value="Collapsed"/>
+        </Style>
+        
         <Style x:Key="mainButtons" TargetType="Button">
             <Setter Property="FontFamily" Value="Google Sans"/>
             <Setter Property="Width" Value="150"/>
@@ -55,6 +63,7 @@
             <Setter Property="HorizontalAlignment" Value="Center"/>
         </Style>
 
+        
 
     </Application.Resources>
 </Application>

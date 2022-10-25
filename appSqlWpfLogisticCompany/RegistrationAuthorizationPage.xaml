@@ -9,15 +9,28 @@
       Title="RegistrationAuthorizationPage">
 
     <Grid>
+        <!--Разделение страницы на колонки-->
+        
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="520"></ColumnDefinition>
+            <ColumnDefinition Width="500"></ColumnDefinition>
             <ColumnDefinition></ColumnDefinition>
         </Grid.ColumnDefinitions>
+        
+        <!--///////////////////-->
+
+        
         <Image Width="80" Height="80" Margin="30,20,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Source="Resources/noLogo.png"></Image>
+
+        <!--Левая часть разметки с текстом о приветствии-->
+        
         <StackPanel VerticalAlignment="Center" Grid.Column="0">
-        <TextBlock Text="МЫ РАДЫ ВИДЕТЬ ТЕБЯ!" Style="{StaticResource textBlockWhite}" FontSize="35" FontWeight="Bold"/>
-        <TextBlock Text="Станем лучшими в своем деле вместе с тобой" Style="{StaticResource textBlockWhite}" FontSize="29" TextWrapping="WrapWithOverflow"/>
+        <TextBlock Text="МЫ РАДЫ ВИДЕТЬ ТЕБЯ!" Style="{StaticResource textBlockWhite}" FontSize="33" FontWeight="Bold"/>
+        <TextBlock Text="Станем лучшими в своем деле вместе с тобой" Style="{StaticResource textBlockWhite}" FontSize="27" TextWrapping="WrapWithOverflow"/>
         </StackPanel>
+        
+        <!--////////////////////////////////////////////-->
+
+        <!--Дизайн rectangle для авторизации-->
 
         <Rectangle Grid.Column="1" Style="{StaticResource decorationRectangle}" Fill="#FF78A0F7" Margin="50,0,0,50" Opacity="0.75">
             <Rectangle.Effect>
@@ -36,26 +49,35 @@
             </Rectangle.Effect>
         </Rectangle>
 
+        <!--////////////////////////////////-->
+
+        <!--Поля для ввода и кнопки-->
+
         <StackPanel Width="200" Height="350" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center">
 
             <StackPanel>
-                <TextBlock FontFamily="Google Sans Medium" HorizontalAlignment="Center" Margin="0,40,0,0" FontSize="19" Foreground="#FF6F97EE">АВТОРИЗАЦИЯ</TextBlock>
+                <TextBlock FontFamily="Google Sans Medium" HorizontalAlignment="Center" Margin="0,40,0,0" FontSize="18" Foreground="#FF6F97EE">АВТОРИЗАЦИЯ</TextBlock>
 
+                <!--Картинка и логин-->
                 <WrapPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="0,50,0,0" >
-                    <Image Margin="0,0,5,0" Width="20" Height="20" Source="Resources/userlogin.png"/>
+                    <Image Name="userLoginIcon"  Margin="0,0,5,0" Width="20" Height="20" Source="Resources/userlogin.png"/>
                     <TextBox PreviewMouseLeftButtonDown="userLoginTB_PreviewMouseLeftButtonDown" LostFocus="userLoginTB_LostFocus"  Name="userLoginTB" Style="{StaticResource textBoxStyle}" Padding="2" Text="Логин" FontSize="13"></TextBox>
                 </WrapPanel>
 
                 <Polyline Name="polylineLogin" Style="{StaticResource polylineField}"></Polyline>
+                <TextBlock Name="emptyLogin" Style="{StaticResource errorTextBlock}">Логин не указан</TextBlock> <!--Скрытый textblock с ошибкой, если пользователь не ввел логин-->
 
+                <!--Картинка и пароль-->
                 <WrapPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="0, 35,0,0">
-                    <Image Margin="0,0,5,0" Width="20" Height="20" Source="Resources/passwordlogin.png"/>
-                    <TextBox Name="userPasswordTB" PreviewKeyDown="userPasswordTB_PreviewKeyDown"  PreviewMouseLeftButtonDown="userPasswordTB_PreviewMouseLeftButtonDown" LostFocus="userPasswordTB_LostFocus" Style="{StaticResource textBoxStyle}" Text="Пароль" Padding="2" FontSize="13"></TextBox>
+                    <Image Name="userPasswordIcon" Margin="0,0,5,0" Width="20" Height="20" Source="Resources/passwordlogin.png"/>
+                    <TextBox Name="userPasswordTB" PreviewMouseLeftButtonDown="userPasswordTB_PreviewMouseLeftButtonDown" Style="{StaticResource textBoxStyle}" Text="Пароль" Padding="2" FontSize="13"></TextBox>
+                    <PasswordBox PreviewMouseLeftButtonDown="userPasswordPB_PreviewMouseLeftButtonDown" LostFocus="userPasswordPB_LostFocus" Visibility="Collapsed" Name="userPasswordPB" Style="{StaticResource passwordBoxStyle}"></PasswordBox>
                 </WrapPanel>
-                
-                <PasswordBox Name="userPasswordPB" Style="{StaticResource passwordBoxStyle}" Visibility="Collapsed"></PasswordBox>
+
                 <Polyline Name="polylinePassword" Style="{StaticResource polylineField}"></Polyline>
-               
+                <TextBlock Name="emptyPassword" Style="{StaticResource errorTextBlock}">Пароль не указан</TextBlock> <!--Скрытый textblock с ошибкой, если пользователь не ввел пароль-->
+                <TextBlock Name="wrongLoginPassword" Style="{StaticResource errorTextBlock}">Неверный логин или пароль</TextBlock> <!--Скрытый textblock с ошибкой, если пользователь ввел некорректные данные-->
+                
                 <Button Name="loginButton" Click="loginButton_Click" Style="{StaticResource mainButtons}" Margin="0,40,0,0" FontSize="13" Foreground="white">
                     <Button.Resources>
                         <Style TargetType="Border">
@@ -67,5 +89,6 @@
                 <Button Name="registrationButton" Click="registrationButton_Click" Margin="0,10,0,0" Width="80" Background="Transparent" BorderThickness="0" FontFamily="Google Sans" Foreground="#C7C9C7" FontSize="13">Регистрация</Button>
             </StackPanel>
         </StackPanel>
+        <!--///////////////////////////-->
     </Grid>
 </Page>
