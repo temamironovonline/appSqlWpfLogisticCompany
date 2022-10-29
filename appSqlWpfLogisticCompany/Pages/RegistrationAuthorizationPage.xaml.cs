@@ -24,13 +24,6 @@ namespace appSqlWpfLogisticCompany
         public RegistrationAuthorizationPage()
         {
             InitializeComponent();
-            loginFormText1.Text = ConnectingXML.xdoc.Root.Element("authorizationLeftText1").Value;
-            loginFormText2.Text = ConnectingXML.xdoc.Root.Element("authorizationLeftText2").Value;
-            authorizationHeader.Text = ConnectingXML.xdoc.Root.Element("authorizationHeader").Value;
-            userLoginTextBox.Text = ConnectingXML.xdoc.Root.Element("authorizationLogin").Value;
-            userPasswordTextBox.Text = ConnectingXML.xdoc.Root.Element("authorizationPassword").Value;
-            loginButton.Content = ConnectingXML.xdoc.Root.Element("authorizationButtonSignIn").Value;
-            registrationButton.Content = ConnectingXML.xdoc.Root.Element("authorizationButtonSignUp").Value;
         }
 
       
@@ -44,9 +37,9 @@ namespace appSqlWpfLogisticCompany
         {
          
             int checkPassword = userPasswordPasswordBox.Password.GetHashCode();
-            if(userLoginTextBox.Text == ConnectingXML.xdoc.Root.Element("authorizationLogin").Value || userPasswordPasswordBox.Password.ToString() == "") //Проверка на пустые поля "Логин" и "Пароль"
+            if(userLoginTextBox.Text == Properties.Languages.Language.authorizationLogin || userPasswordPasswordBox.Password.ToString() == "") //Проверка на пустые поля "Логин" и "Пароль"
             {
-                if(userLoginTextBox.Text == ConnectingXML.xdoc.Root.Element("authorizationLogin").Value) emptyLogin.Visibility = Visibility.Visible; //Показываем ошибку пустого логина
+                if(userLoginTextBox.Text == Properties.Languages.Language.authorizationLogin) emptyLogin.Visibility = Visibility.Visible; //Показываем ошибку пустого логина
                 if (userPasswordPasswordBox.Password.ToString() == "")
                 {
                     emptyPassword.Visibility = Visibility.Visible; //Показываем ошибку пустого пароля
@@ -56,7 +49,7 @@ namespace appSqlWpfLogisticCompany
             }
             else 
             {
-                Users registratedUser = DataBaseConnection.LogisticCompanyDB.Users.FirstOrDefault(z => z.Login_User == userPasswordTextBox.Text && z.Password_User == checkPassword);
+                Users registratedUser = DataBaseConnection.LogisticCompanyDB.Users.FirstOrDefault(z => z.Login_User == userLoginTextBox.Text && z.Password_User == checkPassword);
                 if (registratedUser == null) //Если пользователя не существует (или неверные введенные данные)
                 {
                     wrongLoginPassword.Visibility = Visibility.Visible; //Показываем ошибку неверных данных
@@ -71,7 +64,7 @@ namespace appSqlWpfLogisticCompany
                     }
                     else
                     {
-                        MessageBox.Show("Добро пожаловать, Господин!");
+                        forFrameClass.publicFrame.Navigate(new administrationMenu());
                     }
 
                 }
@@ -79,7 +72,7 @@ namespace appSqlWpfLogisticCompany
             
         }
 
-        private void userLoginTB_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e) //Событие при фокусе на поле ввода логина
+        private void userLoginTextBox_GotFocus(object sender, RoutedEventArgs e)
         {
             if (wrongLoginPassword.Visibility == Visibility.Visible) //Если ошибка неверных данных включена, то отключаем
             {
@@ -88,23 +81,23 @@ namespace appSqlWpfLogisticCompany
             }
             if (emptyLogin.Visibility == Visibility.Visible) emptyLogin.Visibility = Visibility.Collapsed; //Если ошибка пустого логина видна, то отключаем
             var brushConverter = new BrushConverter();
-            if (userLoginTextBox.Text == ConnectingXML.xdoc.Root.Element("authorizationLogin").Value) userLoginTextBox.Text = "";
+            if (userLoginTextBox.Text == Properties.Languages.Language.authorizationLogin) userLoginTextBox.Text = "";
             userLoginTextBox.Foreground = (Brush)brushConverter.ConvertFrom("#FF6F97EE");
             polylineLogin.Stroke = (Brush)brushConverter.ConvertFrom("#FF6F97EE");
             userLoginIcon.Source = new BitmapImage(new Uri(@"pack://application:,,,/Resources/userloginBlue.png"));
-
         }
 
-        private void userLoginTB_LostFocus(object sender, RoutedEventArgs e) //Событие при потере фокуса с поля ввода логина
+
+        private void userLoginTextBox_LostFocus(object sender, RoutedEventArgs e) //Событие при потере фокуса с поля ввода логина
         {
             var brushConverter = new BrushConverter();
-            if (userLoginTextBox.Text == "") userLoginTextBox.Text = ConnectingXML.xdoc.Root.Element("authorizationLogin").Value;
+            if (userLoginTextBox.Text == "") userLoginTextBox.Text = Properties.Languages.Language.authorizationLogin;
             userLoginTextBox.Foreground = (Brush)brushConverter.ConvertFrom("#C7C9C7");
             polylineLogin.Stroke = (Brush)brushConverter.ConvertFrom("#C7C9C7");
             userLoginIcon.Source = new BitmapImage(new Uri(@"pack://application:,,,/Resources/userlogin.png"));
         }
 
-        private void userPasswordTB_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e) //Событие при фокусе на поле ввода пароля (TextBox) (если в поле пароль ничего не введено)
+        private void userPasswordTextBox_GotFocus(object sender, RoutedEventArgs e)
         {
             if (emptyPassword.Visibility == Visibility.Visible) //Если ошибка пустого пароля видна, то отключаем
             {
@@ -120,7 +113,7 @@ namespace appSqlWpfLogisticCompany
             userPasswordIcon.Source = new BitmapImage(new Uri(@"pack://application:,,,/Resources/passwordloginBlue.png"));
         }
 
-        private void userPasswordPB_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e) //Событие при фокусе на поле ввода пароля (PasswordBox) (если в поле пароль что-то введено)
+        private void userPasswordPasswordBox_GotFocus(object sender, RoutedEventArgs e)
         {
             if (wrongLoginPassword.Visibility == Visibility.Visible) //Если ошибка неверных данных включена, то отключаем
             {
@@ -132,7 +125,7 @@ namespace appSqlWpfLogisticCompany
             userPasswordIcon.Source = new BitmapImage(new Uri(@"pack://application:,,,/Resources/passwordloginBlue.png"));
         }
 
-        private void userPasswordPB_LostFocus(object sender, RoutedEventArgs e) //Событие при потере фокуса с поля ввода логина
+        private void userPasswordPasswordBox_LostFocus(object sender, RoutedEventArgs e) //Событие при потере фокуса с поля ввода логина
         {
             var brushConverter = new BrushConverter();
             if (userPasswordPasswordBox.Password.ToString() == "")
