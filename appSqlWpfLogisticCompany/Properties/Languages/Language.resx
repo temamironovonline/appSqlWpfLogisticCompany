@@ -132,12 +132,6 @@
   <data name="authorizationLeftText2" xml:space="preserve">
     <value>Станем лучшими в своем деле вместе с тобой</value>
   </data>
-  <data name="authorizationLogin" xml:space="preserve">
-    <value>Логин</value>
-  </data>
-  <data name="authorizationPassword" xml:space="preserve">
-    <value>Пароль</value>
-  </data>
   <data name="emptyEmail" xml:space="preserve">
     <value>Почта не указана</value>
   </data>
@@ -147,22 +141,49 @@
   <data name="emptyPassword" xml:space="preserve">
     <value>Пароль не указан</value>
   </data>
+  <data name="errorEmail" xml:space="preserve">
+    <value>Почта должна содержать @mail.ru</value>
+  </data>
+  <data name="errorPassword_MinCapitalLetter" xml:space="preserve">
+    <value>В пароле должна содержаться минимум одна заглавная буква</value>
+  </data>
+  <data name="errorPassword_MinLoweraseLetter" xml:space="preserve">
+    <value>В пароле должны содержаться минимум три строчных буквы</value>
+  </data>
+  <data name="errorPassword_MinNumber" xml:space="preserve">
+    <value>В пароле должны содержаться минимум две цифры</value>
+  </data>
+  <data name="errorPassword_MinSpecSymbols" xml:space="preserve">
+    <value>В пароле должен содержаться минимум один спец. символ</value>
+  </data>
+  <data name="existingUserLogin" xml:space="preserve">
+    <value>Пользователь с таким логином уже существует</value>
+  </data>
+  <data name="existingUserMail" xml:space="preserve">
+    <value>Пользователь с такой почтой уже существует</value>
+  </data>
+  <data name="languageEnglish" xml:space="preserve">
+    <value>Английский</value>
+  </data>
+  <data name="languageRussian" xml:space="preserve">
+    <value>Русский</value>
+  </data>
   <data name="registrationButtonBack" xml:space="preserve">
     <value>Назад</value>
   </data>
   <data name="registrationButtonRegistration" xml:space="preserve">
     <value>Зарегистрироваться</value>
   </data>
-  <data name="registrationEmail" xml:space="preserve">
-    <value>Почта</value>
-  </data>
   <data name="registrationHeader" xml:space="preserve">
     <value>РЕГИСТРАЦИЯ</value>
   </data>
-  <data name="registrationLogin" xml:space="preserve">
+  <data name="textEmail" xml:space="preserve">
+    <value>Почта</value>
+  </data>
+  <data name="textLogin" xml:space="preserve">
     <value>Логин</value>
   </data>
-  <data name="registrationPassword" xml:space="preserve">
+  <data name="textPassword" xml:space="preserve">
     <value>Пароль</value>
   </data>
   <data name="wrongLoginPassword" xml:space="preserve">

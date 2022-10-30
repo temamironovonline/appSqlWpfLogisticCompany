@@ -132,17 +132,59 @@
   <data name="authorizationLeftText2" xml:space="preserve">
     <value>We will be the best in our business with you</value>
   </data>
-  <data name="authorizationLogin" xml:space="preserve">
-    <value>Login</value>
-  </data>
-  <data name="authorizationPassword" xml:space="preserve">
-    <value>Password</value>
+  <data name="emptyEmail" xml:space="preserve">
+    <value>Email is empty</value>
   </data>
   <data name="emptyLogin" xml:space="preserve">
     <value>Login is empty</value>
   </data>
   <data name="emptyPassword" xml:space="preserve">
     <value>Password is empty</value>
+  </data>
+  <data name="errorEmail" xml:space="preserve">
+    <value>Mail must have @mail.ru</value>
+  </data>
+  <data name="errorPassword_MinCapitalLetter" xml:space="preserve">
+    <value>The password must contain at least one capital letter</value>
+  </data>
+  <data name="errorPassword_MinLoweraseLetter" xml:space="preserve">
+    <value>The password must contain at least three lowercase letter</value>
+  </data>
+  <data name="errorPassword_MinNumber" xml:space="preserve">
+    <value>The password must contain at least two digits</value>
+  </data>
+  <data name="errorPassword_MinSpecSymbols" xml:space="preserve">
+    <value>The password must contain at least one special symbol</value>
+  </data>
+  <data name="existingUserLogin" xml:space="preserve">
+    <value>A user with this login is already registered</value>
+  </data>
+  <data name="existingUserMail" xml:space="preserve">
+    <value>A user with this email is already registered</value>
+  </data>
+  <data name="languageEnglish" xml:space="preserve">
+    <value>English</value>
+  </data>
+  <data name="languageRussian" xml:space="preserve">
+    <value>Russian</value>
+  </data>
+  <data name="registrationButtonBack" xml:space="preserve">
+    <value>Back</value>
+  </data>
+  <data name="registrationButtonRegistration" xml:space="preserve">
+    <value>Create an account</value>
+  </data>
+  <data name="registrationHeader" xml:space="preserve">
+    <value>REGISTRATION</value>
+  </data>
+  <data name="textEmail" xml:space="preserve">
+    <value>Email</value>
+  </data>
+  <data name="textLogin" xml:space="preserve">
+    <value>Login</value>
+  </data>
+  <data name="textPassword" xml:space="preserve">
+    <value>Password</value>
   </data>
   <data name="wrongLoginPassword" xml:space="preserve">
     <value>Invalid login or password</value>

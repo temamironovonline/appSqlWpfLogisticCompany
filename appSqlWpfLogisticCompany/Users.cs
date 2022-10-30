@@ -26,6 +26,7 @@ namespace appSqlWpfLogisticCompany
         public int Code_Gender { get; set; }
         public System.DateTime Date_Birthday_User { get; set; }
         public int Code_Role { get; set; }
+        public string Mail_User { get; set; }
     
         public virtual Users_Gender Users_Gender { get; set; }
         public virtual Users_Roles Users_Roles { get; set; }

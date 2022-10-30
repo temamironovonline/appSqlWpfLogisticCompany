@@ -59,20 +59,21 @@
             <StackPanel>
                 <TextBlock Name="authorizationHeader" Text="{x:Static language:Language.registrationHeader}" FontFamily="Google Sans Medium" HorizontalAlignment="Center" Margin="0,40,0,0" FontSize="18" Foreground="#FF6F97EE"></TextBlock>
 
-                <!--Картинка и почти-->
-                <WrapPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="0,30,0,0" >
+                <!--Картинка и почта-->
+                <WrapPanel Name="emailPanel" Orientation="Horizontal" HorizontalAlignment="Left" Margin="0,30,0,0" >
                     <Image Name="userEmailIcon"  Margin="2,0,3,0" Width="25" Height="20" Source="../Resources/emailUserGray.png"/>
-                    <TextBox Name="userEmailTextBox" Text="{x:Static language:Language.registrationEmail}" GotFocus="userEmailTextBox_GotFocus" LostFocus="userEmailTextBox_LostFocus" Style="{StaticResource textBoxStyle}" Padding="2" FontSize="13"></TextBox>
+                    <TextBox Name="userEmailTextBox" Text="{x:Static language:Language.textEmail}" GotFocus="userEmailTextBox_GotFocus" LostFocus="userEmailTextBox_LostFocus" Style="{StaticResource textBoxStyle}"></TextBox>
                 </WrapPanel>
 
                 <Polyline Name="polylineEmail" Style="{StaticResource polylineField}"></Polyline>
-                <TextBlock Name="emptyEmail" Text="{x:Static language:Language.emptyLogin}" Style="{StaticResource errorTextBlock}"></TextBlock>
+                <TextBlock Name="emptyEmail" Text="{x:Static language:Language.emptyEmail}" Style="{StaticResource errorTextBlock}"></TextBlock>
+                <TextBlock Name="errorEmail" Text="{x:Static language:Language.errorEmail}" Style="{StaticResource errorTextBlock}"></TextBlock>
                 <!--Скрытый textblock с ошибкой, если пользователь не ввел почту-->
 
                 <!--Картинка и логин-->
-                <WrapPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="0,30,0,0" >
+                <WrapPanel Name="loginPanel" Orientation="Horizontal" HorizontalAlignment="Left" Margin="0,30,0,0" >
                     <Image Name="userLoginIcon"  Margin="5,0,5,0" Width="20" Height="20" Source="../Resources/userlogin.png"/>
-                    <TextBox Name="userLoginTextBox" Text="{x:Static language:Language.registrationLogin}" GotFocus="userLoginTextBox_GotFocus" LostFocus="userLoginTextBox_LostFocus" Style="{StaticResource textBoxStyle}" Padding="2" FontSize="13"></TextBox>
+                    <TextBox Name="userLoginTextBox" Text="{x:Static language:Language.textLogin}" GotFocus="userLoginTextBox_GotFocus" LostFocus="userLoginTextBox_LostFocus" Style="{StaticResource textBoxStyle}"></TextBox>
                 </WrapPanel>
 
                 <Polyline Name="polylineLogin" Style="{StaticResource polylineField}"></Polyline>
@@ -80,26 +81,29 @@
                 <!--Скрытый textblock с ошибкой, если пользователь не ввел логин-->
 
                 <!--Картинка и пароль-->
-                <WrapPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="0,30,0,0">
+                <WrapPanel Name="passwordPanel" Orientation="Horizontal" HorizontalAlignment="Left" Margin="0,30,0,0">
                     <Image Name="userPasswordIcon" Margin="5,0,6,0" Width="20" Height="20" Source="../Resources/passwordlogin.png"/>
-                    <TextBox Name="userPasswordTextBox" Text="{x:Static language:Language.registrationPassword}" GotFocus="userPasswordTextBox_GotFocus" Style="{StaticResource textBoxStyle}" Padding="2" FontSize="13"></TextBox>
+                    <TextBox Name="userPasswordTextBox" Text="{x:Static language:Language.textPassword}" GotFocus="userPasswordTextBox_GotFocus" Style="{StaticResource textBoxStyle}"></TextBox>
                     <PasswordBox Name="userPasswordPasswordBox" GotFocus="userPasswordPasswordBox_GotFocus" LostFocus="userPasswordPasswordBox_LostFocus" Visibility="Collapsed" Style="{StaticResource passwordBoxStyle}"></PasswordBox>
                 </WrapPanel>
 
                 <Polyline Name="polylinePassword" Style="{StaticResource polylineField}"></Polyline>
-                <TextBlock Name="emptyPassword" Text="{x:Static language:Language.emptyPassword}" Style="{StaticResource errorTextBlock}"></TextBlock>
                 <!--Скрытый textblock с ошибкой, если пользователь не ввел пароль-->
-                <TextBlock Name="wrongLoginPassword" Text="{x:Static language:Language.wrongLoginPassword}" Style="{StaticResource errorTextBlock}"></TextBlock>
+                <TextBlock Name="emptyPassword" Text="{x:Static language:Language.emptyPassword}" Style="{StaticResource errorTextBlock}"></TextBlock>
                 <!--Скрытый textblock с ошибкой, если пользователь ввел некорректные данные-->
+                <TextBlock Name="errorPassword" Text="{x:Static language:Language.errorPassword_MinCapitalLetter}"  TextAlignment="Center" TextWrapping="WrapWithOverflow" Style="{StaticResource errorTextBlock}"></TextBlock>
+                <TextBlock Name="existingUserMailTextBox" TextWrapping="WrapWithOverflow" TextAlignment="Center" Margin="0,10,0,0" Text="{x:Static language:Language.existingUserMail}" Style="{StaticResource errorTextBlock}"></TextBlock>
+                <TextBlock Name="existingUserLoginTextBox" TextWrapping="WrapWithOverflow" TextAlignment="Center" Margin="0,10,0,0" Text="{x:Static language:Language.existingUserLogin}" Style="{StaticResource errorTextBlock}"></TextBlock>
+               
 
-                <Button Name="loginButton" Content="{x:Static language:Language.registrationButtonRegistration}" Click="loginButton_Click" Style="{StaticResource mainButtons}" Margin="0,30,0,0" FontSize="13" Foreground="white">
+                <Button Name="registerButton" Content="{x:Static language:Language.registrationButtonRegistration}" Click="registerButton_Click" Style="{StaticResource mainButtons}" Margin="0,30,0,0">
                     <Button.Resources>
                         <Style TargetType="Border">
                             <Setter Property="CornerRadius" Value="18"/>
                         </Style>
                     </Button.Resources>
                 </Button>
-                <Button Name="registrationButton" Content="{x:Static language:Language.registrationButtonBack}" Click="registrationButton_Click" Margin="0,10,0,0" Width="80" Background="Transparent" BorderThickness="0" FontFamily="Google Sans" Foreground="#C7C9C7" FontSize="13"></Button>
+                <Button Name="backButton" Style="{StaticResource secondaryButtons}" Content="{x:Static language:Language.registrationButtonBack}" Click="backButton_Click"></Button>
             </StackPanel>
         </StackPanel>
         <!--///////////////////////////-->

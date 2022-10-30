@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -24,10 +25,10 @@ namespace appSqlWpfLogisticCompany
         public RegistrationAuthorizationPage()
         {
             InitializeComponent();
+            if (Properties.Settings.Default.languageApp == "ru-RU") languageRussianItem.IsSelected = true;
+            else languageEnglishItem.IsSelected = true;
         }
 
-      
-        
         private void registrationButton_Click(object sender, RoutedEventArgs e) //Переход на страницу регистрации при нажатии на кнопку "Регистрация"
         {
             forFrameClass.publicFrame.Navigate(new RegistrationPage());
@@ -37,13 +38,17 @@ namespace appSqlWpfLogisticCompany
         {
          
             int checkPassword = userPasswordPasswordBox.Password.GetHashCode();
-            if(userLoginTextBox.Text == Properties.Languages.Language.authorizationLogin || userPasswordPasswordBox.Password.ToString() == "") //Проверка на пустые поля "Логин" и "Пароль"
+            if(userLoginTextBox.Text == Properties.Languages.Language.textLogin || userPasswordPasswordBox.Password.ToString() == "") //Проверка на пустые поля "Логин" и "Пароль"
             {
-                if(userLoginTextBox.Text == Properties.Languages.Language.authorizationLogin) emptyLogin.Visibility = Visibility.Visible; //Показываем ошибку пустого логина
-                if (userPasswordPasswordBox.Password.ToString() == "")
+                if (userLoginTextBox.Text == Properties.Languages.Language.textLogin) //Показываем ошибку пустого логина
                 {
-                    emptyPassword.Visibility = Visibility.Visible; //Показываем ошибку пустого пароля
-                    loginButton.Margin = new Thickness(0, 35, 0, 0);
+                    emptyLogin.Visibility = Visibility.Visible;
+                    passwordPanel.Margin = new Thickness(0, 20, 0, 0);
+                }
+                if (userPasswordPasswordBox.Password.ToString() == "") //Показываем ошибку пустого пароля
+                {
+                    emptyPassword.Visibility = Visibility.Visible; 
+                    loginButton.Margin = new Thickness(0, 20, 0, 0);
                 }
                 
             }
@@ -79,9 +84,13 @@ namespace appSqlWpfLogisticCompany
                 wrongLoginPassword.Visibility = Visibility.Collapsed;
                 loginButton.Margin = new Thickness(0, 40, 0, 0);
             }
-            if (emptyLogin.Visibility == Visibility.Visible) emptyLogin.Visibility = Visibility.Collapsed; //Если ошибка пустого логина видна, то отключаем
+            if (emptyLogin.Visibility == Visibility.Visible) //Если ошибка пустого логина видна, то отключаем
+            {
+                emptyLogin.Visibility = Visibility.Collapsed;
+                passwordPanel.Margin = new Thickness(0, 35, 0, 0);
+            }
             var brushConverter = new BrushConverter();
-            if (userLoginTextBox.Text == Properties.Languages.Language.authorizationLogin) userLoginTextBox.Text = "";
+            if (userLoginTextBox.Text == Properties.Languages.Language.textLogin) userLoginTextBox.Text = "";
             userLoginTextBox.Foreground = (Brush)brushConverter.ConvertFrom("#FF6F97EE");
             polylineLogin.Stroke = (Brush)brushConverter.ConvertFrom("#FF6F97EE");
             userLoginIcon.Source = new BitmapImage(new Uri(@"pack://application:,,,/Resources/userloginBlue.png"));
@@ -91,7 +100,7 @@ namespace appSqlWpfLogisticCompany
         private void userLoginTextBox_LostFocus(object sender, RoutedEventArgs e) //Событие при потере фокуса с поля ввода логина
         {
             var brushConverter = new BrushConverter();
-            if (userLoginTextBox.Text == "") userLoginTextBox.Text = Properties.Languages.Language.authorizationLogin;
+            if (userLoginTextBox.Text == "") userLoginTextBox.Text = Properties.Languages.Language.textLogin;
             userLoginTextBox.Foreground = (Brush)brushConverter.ConvertFrom("#C7C9C7");
             polylineLogin.Stroke = (Brush)brushConverter.ConvertFrom("#C7C9C7");
             userLoginIcon.Source = new BitmapImage(new Uri(@"pack://application:,,,/Resources/userlogin.png"));
@@ -138,6 +147,22 @@ namespace appSqlWpfLogisticCompany
             userPasswordIcon.Source = new BitmapImage(new Uri(@"pack://application:,,,/Resources/passwordlogin.png"));
         }
 
-       
+
+        private void languageComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if ((languageComboBox.SelectedIndex == 0 && Properties.Settings.Default.languageApp != "ru-RU") || (languageComboBox.SelectedIndex == 1 && Properties.Settings.Default.languageApp != "en-EN"))
+            {
+                //MessageBox.Show("Для применения изменений необходимо перезапустить приложение");
+                if (languageComboBox.SelectedIndex == 0) Properties.Settings.Default.languageApp = "ru-RU";
+                else Properties.Settings.Default.languageApp = "en-EN";
+                Properties.Settings.Default.Save();
+                var langCode = appSqlWpfLogisticCompany.Properties.Settings.Default.languageApp;
+                Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo(langCode);
+                forFrameClass.publicFrame.Navigate(new RegistrationAuthorizationPage());
+            }
+            
+            
+        }
+
     }
 }

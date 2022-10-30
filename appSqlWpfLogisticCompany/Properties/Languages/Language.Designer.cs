@@ -106,24 +106,6 @@ namespace appSqlWpfLogisticCompany.Properties.Languages {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Логин.
-        /// </summary>
-        public static string authorizationLogin {
-            get {
-                return ResourceManager.GetString("authorizationLogin", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Ищет локализованную строку, похожую на Пароль.
-        /// </summary>
-        public static string authorizationPassword {
-            get {
-                return ResourceManager.GetString("authorizationPassword", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Ищет локализованную строку, похожую на Почта не указана.
         /// </summary>
         public static string emptyEmail {
@@ -151,6 +133,87 @@ namespace appSqlWpfLogisticCompany.Properties.Languages {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Почта должна содержать @mail.ru.
+        /// </summary>
+        public static string errorEmail {
+            get {
+                return ResourceManager.GetString("errorEmail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на В пароле должна содержаться минимум одна заглавная буква.
+        /// </summary>
+        public static string errorPassword_MinCapitalLetter {
+            get {
+                return ResourceManager.GetString("errorPassword_MinCapitalLetter", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на В пароле должны содержаться минимум три строчных буквы.
+        /// </summary>
+        public static string errorPassword_MinLoweraseLetter {
+            get {
+                return ResourceManager.GetString("errorPassword_MinLoweraseLetter", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на В пароле должны содержаться минимум две цифры.
+        /// </summary>
+        public static string errorPassword_MinNumber {
+            get {
+                return ResourceManager.GetString("errorPassword_MinNumber", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на В пароле должен содержаться минимум один спец. символ.
+        /// </summary>
+        public static string errorPassword_MinSpecSymbols {
+            get {
+                return ResourceManager.GetString("errorPassword_MinSpecSymbols", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Пользователь с таким логином уже существует.
+        /// </summary>
+        public static string existingUserLogin {
+            get {
+                return ResourceManager.GetString("existingUserLogin", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Пользователь с такой почтой уже существует.
+        /// </summary>
+        public static string existingUserMail {
+            get {
+                return ResourceManager.GetString("existingUserMail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Английский.
+        /// </summary>
+        public static string languageEnglish {
+            get {
+                return ResourceManager.GetString("languageEnglish", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Русский.
+        /// </summary>
+        public static string languageRussian {
+            get {
+                return ResourceManager.GetString("languageRussian", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Назад.
         /// </summary>
         public static string registrationButtonBack {
@@ -169,15 +232,6 @@ namespace appSqlWpfLogisticCompany.Properties.Languages {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Почта.
-        /// </summary>
-        public static string registrationEmail {
-            get {
-                return ResourceManager.GetString("registrationEmail", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Ищет локализованную строку, похожую на РЕГИСТРАЦИЯ.
         /// </summary>
         public static string registrationHeader {
@@ -187,20 +241,29 @@ namespace appSqlWpfLogisticCompany.Properties.Languages {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Почта.
+        /// </summary>
+        public static string textEmail {
+            get {
+                return ResourceManager.GetString("textEmail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Логин.
         /// </summary>
-        public static string registrationLogin {
+        public static string textLogin {
             get {
-                return ResourceManager.GetString("registrationLogin", resourceCulture);
+                return ResourceManager.GetString("textLogin", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Ищет локализованную строку, похожую на Пароль.
         /// </summary>
-        public static string registrationPassword {
+        public static string textPassword {
             get {
-                return ResourceManager.GetString("registrationPassword", resourceCulture);
+                return ResourceManager.GetString("textPassword", resourceCulture);
             }
         }
         
