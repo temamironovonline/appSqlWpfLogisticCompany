@@ -28,6 +28,7 @@
             <TextBlock>Поиск по фамилии</TextBlock>
             <TextBox Name="searchBySurnameTextBox" TextChanged="searchBySurnameTextBox_TextChanged" HorizontalAlignment="Left" Width="100"></TextBox>
             <Button Name="clearButton" Click="clearButton_Click" HorizontalAlignment="Left" Width="100">Очистить</Button>
+            <Button Name="backButton" Click="backButton_Click"  HorizontalAlignment="Left" Width="100">Назад</Button>
         </StackPanel>
         
         

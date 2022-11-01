@@ -10,6 +10,9 @@
 
     <Grid>
         <TextBlock>МЕНЮ АДМИНИСТРАТОРА</TextBlock>
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
         <Button Name="buttonViewRegistratedUsers" Width="300" Height="50" Click="buttonViewRegistratedUsers_Click">Посмотреть зарегистрированных пользователей</Button>
+        <Button Name="buttonViewRequests" Width="300" Height="50" Click="buttonViewRequests_Click">Посмотреть заявки</Button>
+        </StackPanel>
     </Grid>
 </Page>

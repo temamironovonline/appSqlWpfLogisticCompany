@@ -15,6 +15,8 @@ namespace appSqlWpfLogisticCompany
         {
             InitializeComponent();
             registratedUsersDataGrid.ItemsSource = DataBaseConnection.LogisticCompanyDB.Users.ToList();
+            sortingBySurnameComboBox.SelectedIndex = 0;
+            filterByGenderComboBox.SelectedIndex = 0;
         }
 
         List<Users> Users = DataBaseConnection.LogisticCompanyDB.Users.ToList();
@@ -74,6 +76,11 @@ namespace appSqlWpfLogisticCompany
             searchBySurnameTextBox.Text = "";
 
             sortingData();
+        }
+
+        private void backButton_Click(object sender, System.Windows.RoutedEventArgs e)
+        {
+            forFrameClass.publicFrame.Navigate(new administrationMenu());
         }
     }
 }

@@ -12,8 +12,8 @@
         <EntityTypeShape EntityType="LogisticCompanyModel.Requests" Width="1.5" PointX="5.25" PointY="6" />
         <EntityTypeShape EntityType="LogisticCompanyModel.Shippers" Width="1.5" PointX="3" PointY="13.875" />
         <EntityTypeShape EntityType="LogisticCompanyModel.Users" Width="1.5" PointX="8" PointY="1.5" />
-        <EntityTypeShape EntityType="LogisticCompanyModel.Users_Gender" Width="1.5" PointX="5.75" PointY="12.375" />
-        <EntityTypeShape EntityType="LogisticCompanyModel.Users_Roles" Width="1.5" PointX="5.75" PointY="2.375" />
+        <EntityTypeShape EntityType="LogisticCompanyModel.Users_Gender" Width="1.5" PointX="5.75" PointY="2.375" />
+        <EntityTypeShape EntityType="LogisticCompanyModel.Users_Roles" Width="1.5" PointX="5.75" PointY="12.375" />
         <EntityTypeShape EntityType="LogisticCompanyModel.Vehicles" Width="1.5" PointX="3" PointY="4.75" />
         <AssociationConnector Association="LogisticCompanyModel.FK__Vehicles__Code_C__4D94879B" />
         <AssociationConnector Association="LogisticCompanyModel.FK__Requests__Code_C__5812160E" />

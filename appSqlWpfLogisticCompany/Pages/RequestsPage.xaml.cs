@@ -16,23 +16,13 @@ using System.Windows.Shapes;
 namespace appSqlWpfLogisticCompany
 {
     /// <summary>
-    /// Логика взаимодействия для administrationMenu.xaml
+    /// Логика взаимодействия для RequestsPage.xaml
     /// </summary>
-    public partial class administrationMenu : Page
+    public partial class RequestsPage : Page
     {
-        public administrationMenu()
+        public RequestsPage()
         {
             InitializeComponent();
-        }
-
-        private void buttonViewRegistratedUsers_Click(object sender, RoutedEventArgs e)
-        {
-            forFrameClass.publicFrame.Navigate(new listOfRegistratedUsers());
-        }
-
-        private void buttonViewRequests_Click(object sender, RoutedEventArgs e)
-        {
-            forFrameClass.publicFrame.Navigate(new RequestsPage());
         }
     }
 }
