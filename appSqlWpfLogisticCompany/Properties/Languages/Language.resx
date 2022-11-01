@@ -142,7 +142,7 @@
     <value>Пароль не указан</value>
   </data>
   <data name="errorEmail" xml:space="preserve">
-    <value>Почта должна содержать @mail.ru</value>
+    <value>Поле электронной почты должно содержать по крайней мере один символ и @mail.ru на конце</value>
   </data>
   <data name="errorPassword_MinCapitalLetter" xml:space="preserve">
     <value>В пароле должна содержаться минимум одна заглавная буква</value>

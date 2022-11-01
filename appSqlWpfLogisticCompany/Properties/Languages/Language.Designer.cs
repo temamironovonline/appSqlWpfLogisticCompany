@@ -133,7 +133,7 @@ namespace appSqlWpfLogisticCompany.Properties.Languages {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Почта должна содержать @mail.ru.
+        ///   Ищет локализованную строку, похожую на Поле электронной почты должно содержать по крайней мере один символ и @mail.ru на конце.
         /// </summary>
         public static string errorEmail {
             get {

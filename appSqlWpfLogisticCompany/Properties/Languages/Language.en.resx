@@ -142,7 +142,7 @@
     <value>Password is empty</value>
   </data>
   <data name="errorEmail" xml:space="preserve">
-    <value>Mail must have @mail.ru</value>
+    <value>The email field must contain at least one character and @mail.ru at the end</value>
   </data>
   <data name="errorPassword_MinCapitalLetter" xml:space="preserve">
     <value>The password must contain at least one capital letter</value>

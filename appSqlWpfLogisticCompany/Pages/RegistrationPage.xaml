@@ -91,9 +91,9 @@
                 <!--Скрытый textblock с ошибкой, если пользователь не ввел пароль-->
                 <TextBlock Name="emptyPassword" Text="{x:Static language:Language.emptyPassword}" Style="{StaticResource errorTextBlock}"></TextBlock>
                 <!--Скрытый textblock с ошибкой, если пользователь ввел некорректные данные-->
-                <TextBlock Name="errorPassword" Text="{x:Static language:Language.errorPassword_MinCapitalLetter}"  TextAlignment="Center" TextWrapping="WrapWithOverflow" Style="{StaticResource errorTextBlock}"></TextBlock>
-                <TextBlock Name="existingUserMailTextBox" TextWrapping="WrapWithOverflow" TextAlignment="Center" Margin="0,10,0,0" Text="{x:Static language:Language.existingUserMail}" Style="{StaticResource errorTextBlock}"></TextBlock>
-                <TextBlock Name="existingUserLoginTextBox" TextWrapping="WrapWithOverflow" TextAlignment="Center" Margin="0,10,0,0" Text="{x:Static language:Language.existingUserLogin}" Style="{StaticResource errorTextBlock}"></TextBlock>
+                <TextBlock Name="errorPassword" Text="{x:Static language:Language.errorPassword_MinCapitalLetter}" Style="{StaticResource errorTextBlock}"></TextBlock>
+                <TextBlock Name="existingUserMailTextBox" Margin="0,10,0,0" Text="{x:Static language:Language.existingUserMail}" Style="{StaticResource errorTextBlock}"></TextBlock>
+                <TextBlock Name="existingUserLoginTextBox" Margin="0,10,0,0" Text="{x:Static language:Language.existingUserLogin}" Style="{StaticResource errorTextBlock}"></TextBlock>
                
 
                 <Button Name="registerButton" Content="{x:Static language:Language.registrationButtonRegistration}" Click="registerButton_Click" Style="{StaticResource mainButtons}" Margin="0,30,0,0">
