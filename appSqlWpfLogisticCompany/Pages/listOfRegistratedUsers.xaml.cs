@@ -73,7 +73,7 @@ namespace appSqlWpfLogisticCompany
             sortingBySurnameComboBox.SelectedIndex = 0;
             filterByGenderComboBox.SelectedIndex = 0;
             searchByLoginTextBox.Text = "";
-            searchBySurnameTextBox.Text = "";
+            searchBySurnameTextBox.Text = "";   
 
             sortingData();
         }

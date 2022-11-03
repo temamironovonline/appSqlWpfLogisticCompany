@@ -23,6 +23,7 @@ namespace appSqlWpfLogisticCompany
         public RequestsPage()
         {
             InitializeComponent();
+            listRequests.ItemsSource = DataBaseConnection.LogisticCompanyDB.Requests.ToList();
         }
     }
 }

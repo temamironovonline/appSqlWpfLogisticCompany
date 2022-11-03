@@ -10,5 +10,24 @@
 
     <Grid>
         <TextBlock>Заявки</TextBlock>
+        <ListView Name="listRequests" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+            <ListView.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <WrapPanel HorizontalAlignment="Center"></WrapPanel>
+                </ItemsPanelTemplate>
+            </ListView.ItemsPanel>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Border Padding="5" CornerRadius="5" BorderThickness="1">
+                        <Grid Width="300" Height="200">
+                            <StackPanel>
+                                <TextBlock Text="{Binding Code_Request}"></TextBlock>
+                            </StackPanel>
+                        </Grid>
+                        
+                    </Border>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
     </Grid>
 </Page>
