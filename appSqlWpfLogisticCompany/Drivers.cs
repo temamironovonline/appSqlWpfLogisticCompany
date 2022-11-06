@@ -25,7 +25,7 @@ namespace appSqlWpfLogisticCompany
         public string Name_Driver { get; set; }
         public string Surname_Driver { get; set; }
         public string Midname_Driver { get; set; }
-        public string Telephone_Number_Executor { get; set; }
+        public string Telephone_Driver { get; set; }
     
         public virtual Executors Executors { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

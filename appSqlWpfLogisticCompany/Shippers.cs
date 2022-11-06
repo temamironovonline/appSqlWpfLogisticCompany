@@ -25,7 +25,7 @@ namespace appSqlWpfLogisticCompany
         public string Name_Responsible { get; set; }
         public string Surname_Responsible { get; set; }
         public string Midname_Responsible { get; set; }
-        public string Number_Responsible { get; set; }
+        public string Telephone_Responsible { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Requests> Requests { get; set; }

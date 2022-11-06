@@ -11,7 +11,8 @@ namespace appSqlWpfLogisticCompany
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.Windows.Media;
+
     public partial class Requests
     {
         public int Code_Request { get; set; }
@@ -30,11 +31,45 @@ namespace appSqlWpfLogisticCompany
         public string Transportation_Format { get; set; }
         public string Amount_Payment { get; set; }
         public string Payment_Conditions { get; set; }
+        public string Request_Status { get; set; }
+        public Nullable<System.DateTime> Date_Request { get; set; }
     
         public virtual Consignees Consignees { get; set; }
         public virtual Drivers Drivers { get; set; }
         public virtual Executors Executors { get; set; }
         public virtual Shippers Shippers { get; set; }
         public virtual Vehicles Vehicles { get; set; }
+
+        public SolidColorBrush RequestStatusColor 
+        { 
+            get
+            {
+                if (Request_Status == "Открыта")
+                    return Brushes.Green;
+                else return Brushes.Red;
+            }
+        }
+        public SolidColorBrush RequestPaymentColor 
+        { 
+            get
+            {
+                if (Convert.ToInt32(Amount_Payment) >= 0 && Convert.ToInt32(Amount_Payment) <= 50000)
+                    return Brushes.Green;
+                else if (Convert.ToInt32(Amount_Payment) > 50000 && Convert.ToInt32(Amount_Payment) <= 500000)
+                    return Brushes.Orange;
+                else return Brushes.Red;
+            }
+        }
+        public SolidColorBrush RequestRouteColor
+        {
+            get
+            {
+                if (Convert.ToInt32(Route_Towns) >= 0 && Convert.ToInt32(Route_Towns) <= 500)
+                    return Brushes.Green;
+                else if (Convert.ToInt32(Route_Towns) > 500 && Convert.ToInt32(Route_Towns) <= 1000)
+                    return Brushes.Orange;
+                else return Brushes.Red;
+            }
+        }
     }
 }

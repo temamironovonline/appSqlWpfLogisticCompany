@@ -21,7 +21,7 @@
           <Property Name="Name_Responsible" Type="nvarchar" MaxLength="21" Nullable="false" />
           <Property Name="Surname_Responsible" Type="nvarchar" MaxLength="21" Nullable="false" />
           <Property Name="Midname_Responsible" Type="nvarchar" MaxLength="21" Nullable="false" />
-          <Property Name="Number_Responsible" Type="nvarchar" MaxLength="13" Nullable="false" />
+          <Property Name="Telephone_Responsible" Type="nvarchar" MaxLength="13" Nullable="false" />
         </EntityType>
         <EntityType Name="Drivers">
           <Key>
@@ -32,7 +32,7 @@
           <Property Name="Name_Driver" Type="nvarchar" MaxLength="21" Nullable="false" />
           <Property Name="Surname_Driver" Type="nvarchar" MaxLength="21" Nullable="false" />
           <Property Name="Midname_Driver" Type="nvarchar" MaxLength="21" Nullable="false" />
-          <Property Name="Telephone_Number_Executor" Type="nvarchar" MaxLength="13" Nullable="false" />
+          <Property Name="Telephone_Driver" Type="nvarchar" MaxLength="13" Nullable="false" />
         </EntityType>
         <EntityType Name="Executors">
           <Key>
@@ -42,7 +42,7 @@
           <Property Name="Name_Executor" Type="nvarchar" MaxLength="21" Nullable="false" />
           <Property Name="Surname_Executor" Type="nvarchar" MaxLength="21" Nullable="false" />
           <Property Name="Midname_Executor" Type="nvarchar" MaxLength="21" Nullable="false" />
-          <Property Name="Telephone_Number_Executor" Type="nvarchar" MaxLength="13" Nullable="false" />
+          <Property Name="Telephone_Executor" Type="nvarchar" MaxLength="13" Nullable="false" />
         </EntityType>
         <EntityType Name="Requests">
           <Key>
@@ -64,6 +64,8 @@
           <Property Name="Transportation_Format" Type="nvarchar" MaxLength="101" Nullable="false" />
           <Property Name="Amount_Payment" Type="nvarchar" MaxLength="13" Nullable="false" />
           <Property Name="Payment_Conditions" Type="nvarchar" MaxLength="101" Nullable="false" />
+          <Property Name="Request_Status" Type="nvarchar" MaxLength="8" />
+          <Property Name="Date_Request" Type="date" />
         </EntityType>
         <EntityType Name="Shippers">
           <Key>
@@ -74,7 +76,7 @@
           <Property Name="Name_Responsible" Type="nvarchar" MaxLength="21" Nullable="false" />
           <Property Name="Surname_Responsible" Type="nvarchar" MaxLength="21" Nullable="false" />
           <Property Name="Midname_Responsible" Type="nvarchar" MaxLength="21" Nullable="false" />
-          <Property Name="Number_Responsible" Type="nvarchar" MaxLength="13" Nullable="false" />
+          <Property Name="Telephone_Responsible" Type="nvarchar" MaxLength="13" Nullable="false" />
         </EntityType>
         <EntityType Name="Users">
           <Key>
@@ -119,7 +121,7 @@
           <Property Name="Height_Vehicle" Type="real" Nullable="false" />
           <Property Name="Tonnage_Vehicle" Type="real" Nullable="false" />
           <Property Name="Volume_Vehicle" Type="real" Nullable="false" />
-          <Property Name="Number_Vehicle" Type="real" Nullable="false" />
+          <Property Name="Number_Vehicle" Type="nvarchar" MaxLength="10" Nullable="false" />
         </EntityType>
         <Association Name="FK__Drivers__Code_Ex__47DBAE45">
           <End Role="Executors" Type="Self.Executors" Multiplicity="1" />
@@ -297,7 +299,7 @@
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="LogisticCompanyModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityContainer Name="LogisticCompanyEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="LogisticCompanyDBEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Category_Trailer" EntityType="LogisticCompanyModel.Category_Trailer" />
           <EntitySet Name="Consignees" EntityType="LogisticCompanyModel.Consignees" />
           <EntitySet Name="Drivers" EntityType="LogisticCompanyModel.Drivers" />
@@ -366,7 +368,7 @@
           <Property Name="Name_Responsible" Type="String" Nullable="false" MaxLength="21" FixedLength="false" Unicode="true" />
           <Property Name="Surname_Responsible" Type="String" Nullable="false" MaxLength="21" FixedLength="false" Unicode="true" />
           <Property Name="Midname_Responsible" Type="String" Nullable="false" MaxLength="21" FixedLength="false" Unicode="true" />
-          <Property Name="Number_Responsible" Type="String" Nullable="false" MaxLength="13" FixedLength="false" Unicode="true" />
+          <Property Name="Telephone_Responsible" Type="String" Nullable="false" MaxLength="13" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Requests" Relationship="LogisticCompanyModel.FK__Requests__Code_C__5812160E" FromRole="Consignees" ToRole="Requests" />
         </EntityType>
         <EntityType Name="Drivers">
@@ -378,7 +380,7 @@
           <Property Name="Name_Driver" Type="String" Nullable="false" MaxLength="21" FixedLength="false" Unicode="true" />
           <Property Name="Surname_Driver" Type="String" Nullable="false" MaxLength="21" FixedLength="false" Unicode="true" />
           <Property Name="Midname_Driver" Type="String" Nullable="false" MaxLength="21" FixedLength="false" Unicode="true" />
-          <Property Name="Telephone_Number_Executor" Type="String" Nullable="false" MaxLength="13" FixedLength="false" Unicode="true" />
+          <Property Name="Telephone_Driver" Type="String" Nullable="false" MaxLength="13" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Executors" Relationship="LogisticCompanyModel.FK__Drivers__Code_Ex__47DBAE45" FromRole="Drivers" ToRole="Executors" />
           <NavigationProperty Name="Requests" Relationship="LogisticCompanyModel.FK__Requests__Code_D__5535A963" FromRole="Drivers" ToRole="Requests" />
         </EntityType>
@@ -390,7 +392,7 @@
           <Property Name="Name_Executor" Type="String" Nullable="false" MaxLength="21" FixedLength="false" Unicode="true" />
           <Property Name="Surname_Executor" Type="String" Nullable="false" MaxLength="21" FixedLength="false" Unicode="true" />
           <Property Name="Midname_Executor" Type="String" Nullable="false" MaxLength="21" FixedLength="false" Unicode="true" />
-          <Property Name="Telephone_Number_Executor" Type="String" Nullable="false" MaxLength="13" FixedLength="false" Unicode="true" />
+          <Property Name="Telephone_Executor" Type="String" Nullable="false" MaxLength="13" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Drivers" Relationship="LogisticCompanyModel.FK__Drivers__Code_Ex__47DBAE45" FromRole="Executors" ToRole="Drivers" />
           <NavigationProperty Name="Requests" Relationship="LogisticCompanyModel.FK__Requests__Code_E__5441852A" FromRole="Executors" ToRole="Requests" />
           <NavigationProperty Name="Vehicles" Relationship="LogisticCompanyModel.FK__Vehicles__Code_E__4CA06362" FromRole="Executors" ToRole="Vehicles" />
@@ -415,6 +417,8 @@
           <Property Name="Transportation_Format" Type="String" Nullable="false" MaxLength="101" FixedLength="false" Unicode="true" />
           <Property Name="Amount_Payment" Type="String" Nullable="false" MaxLength="13" FixedLength="false" Unicode="true" />
           <Property Name="Payment_Conditions" Type="String" Nullable="false" MaxLength="101" FixedLength="false" Unicode="true" />
+          <Property Name="Request_Status" Type="String" MaxLength="8" FixedLength="false" Unicode="true" />
+          <Property Name="Date_Request" Type="DateTime" Precision="0" />
           <NavigationProperty Name="Consignees" Relationship="LogisticCompanyModel.FK__Requests__Code_C__5812160E" FromRole="Requests" ToRole="Consignees" />
           <NavigationProperty Name="Drivers" Relationship="LogisticCompanyModel.FK__Requests__Code_D__5535A963" FromRole="Requests" ToRole="Drivers" />
           <NavigationProperty Name="Executors" Relationship="LogisticCompanyModel.FK__Requests__Code_E__5441852A" FromRole="Requests" ToRole="Executors" />
@@ -430,7 +434,7 @@
           <Property Name="Name_Responsible" Type="String" Nullable="false" MaxLength="21" FixedLength="false" Unicode="true" />
           <Property Name="Surname_Responsible" Type="String" Nullable="false" MaxLength="21" FixedLength="false" Unicode="true" />
           <Property Name="Midname_Responsible" Type="String" Nullable="false" MaxLength="21" FixedLength="false" Unicode="true" />
-          <Property Name="Number_Responsible" Type="String" Nullable="false" MaxLength="13" FixedLength="false" Unicode="true" />
+          <Property Name="Telephone_Responsible" Type="String" Nullable="false" MaxLength="13" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Requests" Relationship="LogisticCompanyModel.FK__Requests__Code_S__571DF1D5" FromRole="Shippers" ToRole="Requests" />
         </EntityType>
         <EntityType Name="Users">
@@ -480,7 +484,7 @@
           <Property Name="Height_Vehicle" Type="Single" Nullable="false" />
           <Property Name="Tonnage_Vehicle" Type="Single" Nullable="false" />
           <Property Name="Volume_Vehicle" Type="Single" Nullable="false" />
-          <Property Name="Number_Vehicle" Type="Single" Nullable="false" />
+          <Property Name="Number_Vehicle" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Category_Trailer" Relationship="LogisticCompanyModel.FK__Vehicles__Code_C__4D94879B" FromRole="Vehicles" ToRole="Category_Trailer" />
           <NavigationProperty Name="Executors" Relationship="LogisticCompanyModel.FK__Vehicles__Code_E__4CA06362" FromRole="Vehicles" ToRole="Executors" />
           <NavigationProperty Name="Requests" Relationship="LogisticCompanyModel.FK__Requests__Code_V__5629CD9C" FromRole="Vehicles" ToRole="Requests" />
@@ -610,7 +614,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="Хранилище LogisticCompanyModelContainer" CdmEntityContainer="LogisticCompanyEntities">
+        <EntityContainerMapping StorageEntityContainer="Хранилище LogisticCompanyModelContainer" CdmEntityContainer="LogisticCompanyDBEntities">
           <EntitySetMapping Name="Category_Trailer">
             <EntityTypeMapping TypeName="LogisticCompanyModel.Category_Trailer">
               <MappingFragment StoreEntitySet="Category_Trailer">
@@ -622,7 +626,7 @@
           <EntitySetMapping Name="Consignees">
             <EntityTypeMapping TypeName="LogisticCompanyModel.Consignees">
               <MappingFragment StoreEntitySet="Consignees">
-                <ScalarProperty Name="Number_Responsible" ColumnName="Number_Responsible" />
+                <ScalarProperty Name="Telephone_Responsible" ColumnName="Telephone_Responsible" />
                 <ScalarProperty Name="Midname_Responsible" ColumnName="Midname_Responsible" />
                 <ScalarProperty Name="Surname_Responsible" ColumnName="Surname_Responsible" />
                 <ScalarProperty Name="Name_Responsible" ColumnName="Name_Responsible" />
@@ -634,7 +638,7 @@
           <EntitySetMapping Name="Drivers">
             <EntityTypeMapping TypeName="LogisticCompanyModel.Drivers">
               <MappingFragment StoreEntitySet="Drivers">
-                <ScalarProperty Name="Telephone_Number_Executor" ColumnName="Telephone_Number_Executor" />
+                <ScalarProperty Name="Telephone_Driver" ColumnName="Telephone_Driver" />
                 <ScalarProperty Name="Midname_Driver" ColumnName="Midname_Driver" />
                 <ScalarProperty Name="Surname_Driver" ColumnName="Surname_Driver" />
                 <ScalarProperty Name="Name_Driver" ColumnName="Name_Driver" />
@@ -646,7 +650,7 @@
           <EntitySetMapping Name="Executors">
             <EntityTypeMapping TypeName="LogisticCompanyModel.Executors">
               <MappingFragment StoreEntitySet="Executors">
-                <ScalarProperty Name="Telephone_Number_Executor" ColumnName="Telephone_Number_Executor" />
+                <ScalarProperty Name="Telephone_Executor" ColumnName="Telephone_Executor" />
                 <ScalarProperty Name="Midname_Executor" ColumnName="Midname_Executor" />
                 <ScalarProperty Name="Surname_Executor" ColumnName="Surname_Executor" />
                 <ScalarProperty Name="Name_Executor" ColumnName="Name_Executor" />
@@ -657,6 +661,8 @@
           <EntitySetMapping Name="Requests">
             <EntityTypeMapping TypeName="LogisticCompanyModel.Requests">
               <MappingFragment StoreEntitySet="Requests">
+                <ScalarProperty Name="Date_Request" ColumnName="Date_Request" />
+                <ScalarProperty Name="Request_Status" ColumnName="Request_Status" />
                 <ScalarProperty Name="Payment_Conditions" ColumnName="Payment_Conditions" />
                 <ScalarProperty Name="Amount_Payment" ColumnName="Amount_Payment" />
                 <ScalarProperty Name="Transportation_Format" ColumnName="Transportation_Format" />
@@ -679,7 +685,7 @@
           <EntitySetMapping Name="Shippers">
             <EntityTypeMapping TypeName="LogisticCompanyModel.Shippers">
               <MappingFragment StoreEntitySet="Shippers">
-                <ScalarProperty Name="Number_Responsible" ColumnName="Number_Responsible" />
+                <ScalarProperty Name="Telephone_Responsible" ColumnName="Telephone_Responsible" />
                 <ScalarProperty Name="Midname_Responsible" ColumnName="Midname_Responsible" />
                 <ScalarProperty Name="Surname_Responsible" ColumnName="Surname_Responsible" />
                 <ScalarProperty Name="Name_Responsible" ColumnName="Name_Responsible" />

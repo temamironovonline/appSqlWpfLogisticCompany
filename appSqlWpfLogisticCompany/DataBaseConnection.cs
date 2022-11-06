@@ -8,6 +8,6 @@ namespace appSqlWpfLogisticCompany
 {
     internal class DataBaseConnection
     {
-        public static LogisticCompanyEntities LogisticCompanyDB;
+        public static LogisticCompanyDBEntities LogisticCompanyDB;
     }
 }

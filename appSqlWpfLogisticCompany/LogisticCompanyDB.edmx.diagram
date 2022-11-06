@@ -4,16 +4,16 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="d53acc306e6e4d91ac181f7c39abc40b" Name="Diagram1" ZoomLevel="82">
+      <Diagram DiagramId="c41b5b27775b45279d3c0a49001e5f67" Name="Diagram1" ZoomLevel="59">
         <EntityTypeShape EntityType="LogisticCompanyModel.Category_Trailer" Width="1.5" PointX="0.75" PointY="2.75" />
-        <EntityTypeShape EntityType="LogisticCompanyModel.Consignees" Width="1.5" PointX="3" PointY="0.75" />
+        <EntityTypeShape EntityType="LogisticCompanyModel.Consignees" Width="1.5" PointX="3" PointY="13.875" />
         <EntityTypeShape EntityType="LogisticCompanyModel.Drivers" Width="1.5" PointX="3" PointY="9.75" />
         <EntityTypeShape EntityType="LogisticCompanyModel.Executors" Width="1.5" PointX="0.75" PointY="5.25" />
-        <EntityTypeShape EntityType="LogisticCompanyModel.Requests" Width="1.5" PointX="5.25" PointY="6" />
-        <EntityTypeShape EntityType="LogisticCompanyModel.Shippers" Width="1.5" PointX="3" PointY="13.875" />
-        <EntityTypeShape EntityType="LogisticCompanyModel.Users" Width="1.5" PointX="8" PointY="1.5" />
-        <EntityTypeShape EntityType="LogisticCompanyModel.Users_Gender" Width="1.5" PointX="5.75" PointY="2.375" />
-        <EntityTypeShape EntityType="LogisticCompanyModel.Users_Roles" Width="1.5" PointX="5.75" PointY="12.375" />
+        <EntityTypeShape EntityType="LogisticCompanyModel.Requests" Width="1.5" PointX="5.25" PointY="5.75" />
+        <EntityTypeShape EntityType="LogisticCompanyModel.Shippers" Width="1.5" PointX="3" PointY="0.75" />
+        <EntityTypeShape EntityType="LogisticCompanyModel.Users" Width="1.5" PointX="8" PointY="1.25" />
+        <EntityTypeShape EntityType="LogisticCompanyModel.Users_Gender" Width="1.5" PointX="5.75" PointY="12.125" />
+        <EntityTypeShape EntityType="LogisticCompanyModel.Users_Roles" Width="1.5" PointX="5.75" PointY="2.125" />
         <EntityTypeShape EntityType="LogisticCompanyModel.Vehicles" Width="1.5" PointX="3" PointY="4.75" />
         <AssociationConnector Association="LogisticCompanyModel.FK__Vehicles__Code_C__4D94879B" />
         <AssociationConnector Association="LogisticCompanyModel.FK__Requests__Code_C__5812160E" />

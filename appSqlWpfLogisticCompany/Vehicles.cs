@@ -30,7 +30,7 @@ namespace appSqlWpfLogisticCompany
         public float Height_Vehicle { get; set; }
         public float Tonnage_Vehicle { get; set; }
         public float Volume_Vehicle { get; set; }
-        public float Number_Vehicle { get; set; }
+        public string Number_Vehicle { get; set; }
     
         public virtual Category_Trailer Category_Trailer { get; set; }
         public virtual Executors Executors { get; set; }

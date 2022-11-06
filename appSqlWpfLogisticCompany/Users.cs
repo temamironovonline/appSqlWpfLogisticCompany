@@ -11,12 +11,9 @@ namespace appSqlWpfLogisticCompany
 {
     using System;
     using System.Collections.Generic;
-    using System.Text.RegularExpressions;
-
+    
     public partial class Users
     {
-        internal Regex checkPassword;
-
         public int Code_User { get; set; }
         public string Name_User { get; set; }
         public string Surname_User { get; set; }

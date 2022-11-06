@@ -24,6 +24,8 @@ namespace appSqlWpfLogisticCompany
         {
             InitializeComponent();
             listRequests.ItemsSource = DataBaseConnection.LogisticCompanyDB.Requests.ToList();
+            int count = DataBaseConnection.LogisticCompanyDB.Requests.Count(x => x.Date_Request.Value.Month == DateTime.Now.Month && x.Date_Request.Value.Year == DateTime.Now.Year);
+            countRequest.Text = Convert.ToString(count);
         }
     }
 }
