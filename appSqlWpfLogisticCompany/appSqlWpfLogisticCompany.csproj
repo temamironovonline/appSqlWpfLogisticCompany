@@ -64,6 +64,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="addRequestPage.xaml.cs">
+      <DependentUpon>addRequestPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Category_Trailer.cs">
       <DependentUpon>LogisticCompanyDB.tt</DependentUpon>
     </Compile>
@@ -139,6 +142,10 @@
     <Compile Include="Vehicles.cs">
       <DependentUpon>LogisticCompanyDB.tt</DependentUpon>
     </Compile>
+    <Page Include="addRequestPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\listOfRegistratedUsers.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

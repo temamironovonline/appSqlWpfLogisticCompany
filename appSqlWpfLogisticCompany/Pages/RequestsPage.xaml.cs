@@ -27,5 +27,15 @@ namespace appSqlWpfLogisticCompany
             int count = DataBaseConnection.LogisticCompanyDB.Requests.Count(x => x.Date_Request.Value.Month == DateTime.Now.Month && x.Date_Request.Value.Year == DateTime.Now.Year);
             countRequest.Text = Convert.ToString(count);
         }
+
+        private void backButton_Click(object sender, RoutedEventArgs e)
+        {
+            forFrameClass.publicFrame.Navigate(new administrationMenu());
+        }
+
+        private void createRequestButton_Click(object sender, RoutedEventArgs e)
+        {
+            forFrameClass.publicFrame.Navigate(new addRequestPage());
+        }
     }
 }

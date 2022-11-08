@@ -13,6 +13,9 @@
         <TextBlock Margin="5">Заявки</TextBlock>
         <TextBlock Margin="5">Количество заявок в этом месяце: </TextBlock>
         <TextBlock Name="countRequest"  Margin="5"></TextBlock>
+        <Button Name="createRequestButton" Click="createRequestButton_Click">Создать</Button>
+        <Button Name="backButton" Click="backButton_Click">Назад</Button>
+            
         </WrapPanel>
         <ListView Name="listRequests" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Width="800" Height="500">
             <ListView.ItemsPanel>
