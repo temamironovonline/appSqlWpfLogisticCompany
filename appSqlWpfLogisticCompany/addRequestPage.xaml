@@ -27,10 +27,10 @@
                     <ComboBox Name="executorsComboBox" Width="150"></ComboBox>
             
                     <TextBlock>Водитель</TextBlock>
-                    <ComboBox Width="150"></ComboBox>
+                    <ComboBox Name="driversComboBox" Width="150"></ComboBox>
 
                     <TextBlock>Автомобиль</TextBlock>
-                    <ComboBox Width="150"></ComboBox>
+                    <ComboBox Name="vehiclesComboBox" Width="150"></ComboBox>
 
                     <TextBlock>Дата загрузки</TextBlock>
                     <DatePicker Width="150"></DatePicker>
@@ -39,10 +39,10 @@
                     <RichTextBox Width="150" Height="50"></RichTextBox>
 
                     <TextBlock>Грузоотправитель</TextBlock>
-                    <ComboBox Width="150"></ComboBox>
+                    <ComboBox Name="shippersComboBox" Width="150"></ComboBox>
 
                     <TextBlock>Название груза</TextBlock>
-                    <ComboBox Width="150"></ComboBox>
+                    <TextBox Width="150"></TextBox>
 
                     <TextBlock>Условия транспортировки</TextBlock>
                     <RichTextBox Width="150" Height="50"></RichTextBox>
@@ -54,13 +54,13 @@
                     <RichTextBox Width="150" Height="50"></RichTextBox>
 
                     <TextBlock>Грузополучатель</TextBlock>
-                    <ComboBox Width="150"></ComboBox>
+                    <ComboBox Name="consigneesComboBox" Width="150"></ComboBox>
 
                     <TextBlock>Длина маршрута</TextBlock>
                     <TextBox Width="150"></TextBox>
 
                     <TextBlock>Формат транспортировки</TextBlock>
-                    <ComboBox Width="150"></ComboBox>
+                    <TextBox Width="150"></TextBox>
 
                     <TextBlock>Стоимость транспортировки</TextBlock>
                     <TextBox Width="150"></TextBox>
