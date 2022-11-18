@@ -24,13 +24,13 @@
                     <TextBlock>ЗАЯВКА</TextBlock>
                     
                     <TextBlock>Исполнитель</TextBlock>
-                    <ComboBox Name="executorsComboBox" Width="150"></ComboBox>
+                    <ComboBox Name="executorsComboBox" SelectionChanged="executorsComboBox_SelectionChanged" Width="150"></ComboBox>
             
                     <TextBlock>Водитель</TextBlock>
-                    <ComboBox Name="driversComboBox" Width="150"></ComboBox>
+                    <ComboBox Name="driversComboBox" SelectionChanged="driversComboBox_SelectionChanged" Width="150"></ComboBox>
 
                     <TextBlock>Автомобиль</TextBlock>
-                    <ComboBox Name="vehiclesComboBox" Width="150"></ComboBox>
+                    <ComboBox Name="vehiclesComboBox" SelectionChanged="vehiclesComboBox_SelectionChanged" Width="150"></ComboBox>
 
                     <TextBlock>Дата загрузки</TextBlock>
                     <DatePicker Width="150"></DatePicker>
@@ -39,7 +39,7 @@
                     <RichTextBox Width="150" Height="50"></RichTextBox>
 
                     <TextBlock>Грузоотправитель</TextBlock>
-                    <ComboBox Name="shippersComboBox" Width="150"></ComboBox>
+                    <ComboBox Name="shippersComboBox" SelectionChanged="shippersComboBox_SelectionChanged" Width="150"></ComboBox>
 
                     <TextBlock>Название груза</TextBlock>
                     <TextBox Width="150"></TextBox>
@@ -54,7 +54,7 @@
                     <RichTextBox Width="150" Height="50"></RichTextBox>
 
                     <TextBlock>Грузополучатель</TextBlock>
-                    <ComboBox Name="consigneesComboBox" Width="150"></ComboBox>
+                    <ComboBox Name="consigneesComboBox" SelectionChanged="consigneesComboBox_SelectionChanged" Width="150"></ComboBox>
 
                     <TextBlock>Длина маршрута</TextBlock>
                     <TextBox Width="150"></TextBox>
@@ -69,13 +69,18 @@
                     <TextBox Width="150"></TextBox>
 
                     <TextBlock>Статус заявки</TextBlock>
-                    <ComboBox Width="150"></ComboBox>
+                    <ComboBox Width="150" Name="paymentStatusComboBox">
+                        <ComboBoxItem>Открыта</ComboBoxItem>
+                        <ComboBoxItem>Закрыта</ComboBoxItem>
+                    </ComboBox>
 
                     <TextBlock>Дата заявки</TextBlock>
                     <DatePicker Width="150"></DatePicker>
+
+                    <Button Name="addRequestButton" Click="addRequestButton_Click">Добавить</Button>
                 </StackPanel>
 
-                <StackPanel Margin="5">
+                <StackPanel Name="addExecutorPanel" Margin="5" Visibility="Visible">
                     <TextBlock>ИСПОЛНИТЕЛЬ</TextBlock>
                     
                     <TextBlock>Фамилия исполнителя</TextBlock>
@@ -91,7 +96,7 @@
                     <TextBox Width="100"></TextBox>
                 </StackPanel>
 
-                <StackPanel Margin="5">
+                <StackPanel Name="addDriverPanel" Margin="5" Visibility="Visible">
                     <TextBlock>ВОДИТЕЛЬ</TextBlock>
 
                     <TextBlock>Фамилия водителя</TextBlock>
@@ -107,11 +112,11 @@
                     <TextBox Width="100"></TextBox>
                 </StackPanel>
 
-                <StackPanel Margin="5">
+                <StackPanel Name="addVehiclePanel" Margin="5" Visibility="Visible">
                     <TextBlock>АВТОМОБИЛЬ</TextBlock>
 
                     <TextBlock>Категория прицепа</TextBlock>
-                    <ComboBox Width="100"></ComboBox>
+                    <ComboBox Width="100" Name="categoryTrailerComboBox"></ComboBox>
 
                     <TextBlock>Марка автомобиля</TextBlock>
                     <TextBox Width="100"></TextBox>
@@ -135,7 +140,7 @@
                     <TextBox Width="100"></TextBox>
                 </StackPanel>
 
-                <StackPanel Margin="5">
+                <StackPanel Name="addShipperPanel" Margin="5" Visibility="Visible">
                     <TextBlock>ГРУЗООТПРАВИТЕЛЬ</TextBlock>
 
                     <TextBlock>Название компании</TextBlock>
@@ -154,7 +159,7 @@
                     <TextBox Width="100"></TextBox>
                 </StackPanel>
 
-                <StackPanel Margin="5">
+                <StackPanel Name="addConsigneePanel" Margin="5" Visibility="Visible">
                     <TextBlock>ГРУЗОПОЛУЧАТЕЛЬ</TextBlock>
 
                     <TextBlock>Название компании</TextBlock>
