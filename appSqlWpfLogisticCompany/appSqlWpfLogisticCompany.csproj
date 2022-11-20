@@ -136,6 +136,12 @@
     <Compile Include="Shippers.cs">
       <DependentUpon>LogisticCompanyDB.tt</DependentUpon>
     </Compile>
+    <Compile Include="updateDriver.xaml.cs">
+      <DependentUpon>updateDriver.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="updateVehicle.xaml.cs">
+      <DependentUpon>updateVehicle.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Users.cs">
       <DependentUpon>LogisticCompanyDB.tt</DependentUpon>
     </Compile>
@@ -193,6 +199,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pages\RequestsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="updateDriver.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="updateVehicle.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

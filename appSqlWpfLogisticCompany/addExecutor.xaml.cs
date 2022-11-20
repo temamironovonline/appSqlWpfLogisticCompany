@@ -25,6 +25,8 @@ namespace appSqlWpfLogisticCompany
             InitializeComponent();
 
             //Заполняем combo box категорий прицепов
+            listDrivers.Visibility = Visibility.Collapsed;
+            listVehicles.Visibility = Visibility.Collapsed;
             categoryTrailerComboBox.Items.Add("Не выбрано");
             List<Category_Trailer> trailersList = DataBaseConnection.LogisticCompanyDB.Category_Trailer.ToList();
             for (int i = 0; i < trailersList.Count; i++)
@@ -41,12 +43,21 @@ namespace appSqlWpfLogisticCompany
         public addExecutor(Executors executors)
         {
             InitializeComponent();
-            MessageBox.Show("У исполнителя может быть много водителей и автомобилей");
             headingPage.Text = "Изменение";
+            addExecutorButton.Content = "Изменить";
             this.executors = executors;
+
+            surnameExecutorTextBox.Text = executors.Surname_Executor;
+            nameExecutorTextBox.Text = executors.Name_Executor;
+            midnameExecutorTextBox.Text = executors.Midname_Executor;
+            telephoneExecutorTextBox.Text = executors.Telephone_Executor;
+
             checkExisitingExecutor = true;
             addDriverPanel.Visibility = Visibility.Collapsed;
             addVehiclePanel.Visibility = Visibility.Collapsed;
+            int codeExecutor = executors.Code_Executor;
+            listDrivers.ItemsSource = DataBaseConnection.LogisticCompanyDB.Drivers.Where(x => x.Code_Executor == codeExecutor).ToList();
+            listVehicles.ItemsSource = DataBaseConnection.LogisticCompanyDB.Vehicles.Where(x => x.Code_Executor == codeExecutor).ToList();
         }
 
         private void backButton_Click(object sender, RoutedEventArgs e)
@@ -57,7 +68,7 @@ namespace appSqlWpfLogisticCompany
         private void addExecutorButton_Click(object sender, RoutedEventArgs e)
         {
             //Заглушка на проверку пустых полей, переделать
-            if (checkExisitingExecutor)
+            if (!checkExisitingExecutor)
             {
                 if (surnameExecutorTextBox.Text == "" || nameExecutorTextBox.Text == "" || midnameDriverTextBox.Text == "" || telephoneExecutorTextBox.Text == "" || surnameDriverTextBox.Text == "" || nameDriverTextBox.Text == "" || midnameDriverTextBox.Text == "" || categoryTrailerComboBox.SelectedIndex == 0 || brandVehicleTextBox.Text == "" || modelVehicleTextBox.Text == "" || lengthVehicleTextBox.Text == "" || widthVehicleTextBox.Text == "" || heightVehicleTextBox.Text == "" || volumeVehicleTextBox.Text == "" || tonnageVehicleTextBox.Text == "" || numberVehicleTextBox.Text == "")
                     MessageBox.Show("Есть пустые поля", "Обидненько, да?))))");
@@ -97,28 +108,52 @@ namespace appSqlWpfLogisticCompany
                     };
                     DataBaseConnection.LogisticCompanyDB.Vehicles.Add(vehicles);
                 }
-                
+
 
 
                 DataBaseConnection.LogisticCompanyDB.SaveChanges();
             }
             else
             {
-                if (surnameExecutorTextBox.Text == "" || nameExecutorTextBox.Text == "" || midnameDriverTextBox.Text == "" || telephoneExecutorTextBox.Text == "")
+                if (surnameExecutorTextBox.Text == "" || nameExecutorTextBox.Text == "" || midnameExecutorTextBox.Text == "" || telephoneExecutorTextBox.Text == "")
                     MessageBox.Show("Есть пустые поля", "Обидненько, да?))))");
                 else
                 {
-                    Executors executors = new Executors()
-                    {
-                        Surname_Executor = surnameExecutorTextBox.Text,
-                        Name_Executor = nameExecutorTextBox.Text,
-                        Midname_Executor = midnameExecutorTextBox.Text,
-                        Telephone_Executor = telephoneExecutorTextBox.Text
-                    };
+                    executors.Surname_Executor = surnameExecutorTextBox.Text;
+                    executors.Name_Executor = nameExecutorTextBox.Text;
+                    executors.Midname_Executor = midnameExecutorTextBox.Text;
+                    executors.Telephone_Executor = telephoneExecutorTextBox.Text;
 
                     DataBaseConnection.LogisticCompanyDB.SaveChanges();
                     forFrameClass.publicFrame.Navigate(new listOfExecutors());
                 }
+            }
+        }
+
+        private void deleteDriverButton_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Удаление пока не работает, потому что не настраивается каскадное удаление");
+        }
+
+        private void updateDriverButton_Click(object sender, RoutedEventArgs e)
+        {
+            Button getDriverIndex = (Button)sender;
+            int driverIndex = Convert.ToInt32(getDriverIndex.Uid);
+            Drivers drivers = DataBaseConnection.LogisticCompanyDB.Drivers.FirstOrDefault(x => x.Code_Driver == driverIndex);
+            forFrameClass.publicFrame.Navigate(new updateDriver(drivers, executors));
+        }
+
+        private void deleteVehicleButton_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Удаление пока не работает, потому что не настраивается каскадное удаление");
+        }
+
+        private void updateVehicleButton_Click(object sender, RoutedEventArgs e)
+        {
+            Button getVehicleIndex = (Button)sender;
+            int vehicleIndex = Convert.ToInt32(getVehicleIndex.Uid);
+            Vehicles vehicles = DataBaseConnection.LogisticCompanyDB.Vehicles.FirstOrDefault(x => x.Code_Vehicle == vehicleIndex);
+            forFrameClass.publicFrame.Navigate(new updateVehicle(vehicles, executors));
         }
     }
 }

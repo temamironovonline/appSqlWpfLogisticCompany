@@ -50,7 +50,11 @@ namespace appSqlWpfLogisticCompany
 
         private void updateExecutorButton_Click(object sender, RoutedEventArgs e)
         {
+            Button buttonDelete = (Button)sender;
+            int index = Convert.ToInt32(buttonDelete.Uid);
+            Executors executors = DataBaseConnection.LogisticCompanyDB.Executors.FirstOrDefault(x => x.Code_Executor == index);
 
+            forFrameClass.publicFrame.Navigate(new addExecutor(executors));
         }
     }
 }

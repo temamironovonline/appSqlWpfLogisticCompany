@@ -104,8 +104,8 @@
                                         </TextBlock>
                                         <TextBlock Text="{Binding Telephone_Driver, StringFormat=Телефон: {0}}"></TextBlock>
                                         <WrapPanel>
-                                            <Button Name="deleteExecutorButton" Uid="{Binding Code_Driver}" Click="deleteExecutorButton_Click">Удалить</Button>
-                                            <Button Name="updateExecutorButton" Uid="{Binding Code_Driver}" Click="updateExecutorButton_Click">Изменить</Button>
+                                            <Button Name="deleteDriverButton" Uid="{Binding Code_Driver}" Click="deleteDriverButton_Click">Удалить</Button>
+                                            <Button Name="updateDriverButton" Uid="{Binding Code_Driver}" Click="updateDriverButton_Click">Изменить</Button>
                                         </WrapPanel>
                                     </StackPanel>
                                 </Grid>
@@ -127,21 +127,25 @@
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <Border Padding="5" CornerRadius="5" BorderThickness="1">
-                                <Grid Width="300" Height="50">
+                                <Grid Width="300" Height="120">
                                     <StackPanel>
                                         <TextBlock>
                                             <TextBlock.Text>
-                                                <MultiBinding StringFormat="ФИО: {0} {1} {2}">
-                                                    <Binding Path="Surname_Executor" />
-                                                    <Binding Path="Name_Executor" />
-                                                    <Binding Path="Midname_Executor" />
+                                                <MultiBinding StringFormat="Автомобиль: {0} {1} {2}">
+                                                    <Binding Path="Brand_Vehicle" />
+                                                    <Binding Path="Model_Vehicle" />
+                                                    <Binding Path="Number_Vehicle" />
                                                 </MultiBinding>
                                             </TextBlock.Text>
                                         </TextBlock>
-                                        <TextBlock Text="{Binding Telephone_Executor, StringFormat=Телефон: {0}}"></TextBlock>
+                                        <TextBlock Text="{Binding Length_Vehicle, StringFormat=Длина кузова: {0}}"></TextBlock>
+                                        <TextBlock Text="{Binding Width_Vehicle, StringFormat=Ширина кузова: {0}}"></TextBlock>
+                                        <TextBlock Text="{Binding Height_Vehicle, StringFormat=Высота кузова: {0}}"></TextBlock>
+                                        <TextBlock Text="{Binding Volume_Vehicle, StringFormat=Объем кузова: {0}}"></TextBlock>
+                                        <TextBlock Text="{Binding Tonnage_Vehicle, StringFormat=Тоннаж кузова: {0}}"></TextBlock>
                                         <WrapPanel>
-                                            <Button Name="deleteExecutorButton" Uid="{Binding Code_Executor}" Click="deleteExecutorButton_Click">Удалить</Button>
-                                            <Button Name="updateExecutorButton" Uid="{Binding Code_Executor}" Click="updateExecutorButton_Click">Изменить</Button>
+                                            <Button Name="deleteVehicleButton" Uid="{Binding Code_Vehicle}" Click="deleteVehicleButton_Click">Удалить</Button>
+                                            <Button Name="updateVehicleButton" Uid="{Binding Code_Vehicle}" Click="updateVehicleButton_Click">Изменить</Button>
                                         </WrapPanel>
                                     </StackPanel>
                                 </Grid>
