@@ -34,5 +34,10 @@ namespace appSqlWpfLogisticCompany
         {
             forFrameClass.publicFrame.Navigate(new RequestsPage());
         }
+
+        private void buttonViewExecutors_Click(object sender, RoutedEventArgs e)
+        {
+            forFrameClass.publicFrame.Navigate(new listOfExecutors());
+        }
     }
 }
