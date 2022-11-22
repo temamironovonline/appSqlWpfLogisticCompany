@@ -25,6 +25,8 @@ namespace appSqlWpfLogisticCompany
             InitializeComponent();
 
             //Заполняем combo box категорий прицепов
+            listDriversTextBox.Visibility = Visibility.Collapsed;
+            listVehiclesTextBox.Visibility = Visibility.Collapsed;
             listDrivers.Visibility = Visibility.Collapsed;
             listVehicles.Visibility = Visibility.Collapsed;
             categoryTrailerComboBox.Items.Add("Не выбрано");

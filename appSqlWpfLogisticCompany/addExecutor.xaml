@@ -81,7 +81,7 @@
         </WrapPanel>
             <WrapPanel>
                 <StackPanel>
-                    <TextBlock>Список водителей</TextBlock>
+                    <TextBlock Name="listDriversTextBox">Список водителей</TextBlock>
                     <ListView Name="listDrivers" ScrollViewer.HorizontalScrollBarVisibility="Disabled"  Width="400" Height="250">
                     <ListView.ItemsPanel>
                         <ItemsPanelTemplate>
@@ -117,7 +117,7 @@
 
 
                 <StackPanel>
-                    <TextBlock>Список автомобилей</TextBlock>
+                    <TextBlock Name="listVehiclesTextBox" Margin="20,0,0,0">Список автомобилей</TextBlock>
                 <ListView Name="listVehicles" ScrollViewer.HorizontalScrollBarVisibility="Disabled"  Width="400" Height="250" Margin="20,0,0,0">
                     <ListView.ItemsPanel>
                         <ItemsPanelTemplate>
