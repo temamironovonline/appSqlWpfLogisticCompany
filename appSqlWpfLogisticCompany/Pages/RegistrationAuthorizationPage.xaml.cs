@@ -65,7 +65,7 @@ namespace appSqlWpfLogisticCompany
                 {
                     if (registratedUser.Code_Role == 2)
                     {
-                        MessageBox.Show("Добро пожаловать!");
+                        forFrameClass.publicFrame.Navigate(new PersonalAccountView(registratedUser));
                     }
                     else
                     {

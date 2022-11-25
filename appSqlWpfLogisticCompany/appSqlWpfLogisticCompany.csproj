@@ -64,7 +64,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="addExecutor.xaml.cs">
+    <Compile Include="Pages\addExecutor.xaml.cs">
       <DependentUpon>addExecutor.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\listOfExecutors.xaml.cs">
@@ -117,6 +117,9 @@
     <Compile Include="Pages\RegistrationPage.xaml.cs">
       <DependentUpon>RegistrationPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="PersonalAccountView.xaml.cs">
+      <DependentUpon>PersonalAccountView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Properties\Languages\Language.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -136,10 +139,10 @@
     <Compile Include="Shippers.cs">
       <DependentUpon>LogisticCompanyDB.tt</DependentUpon>
     </Compile>
-    <Compile Include="updateDriver.xaml.cs">
+    <Compile Include="Pages\updateDriver.xaml.cs">
       <DependentUpon>updateDriver.xaml</DependentUpon>
     </Compile>
-    <Compile Include="updateVehicle.xaml.cs">
+    <Compile Include="Pages\updateVehicle.xaml.cs">
       <DependentUpon>updateVehicle.xaml</DependentUpon>
     </Compile>
     <Compile Include="Users.cs">
@@ -154,7 +157,7 @@
     <Compile Include="Vehicles.cs">
       <DependentUpon>LogisticCompanyDB.tt</DependentUpon>
     </Compile>
-    <Page Include="addExecutor.xaml">
+    <Page Include="Pages\addExecutor.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -202,11 +205,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="updateDriver.xaml">
+    <Page Include="Pages\updateDriver.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="updateVehicle.xaml">
+    <Page Include="Pages\updateVehicle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PersonalAccountView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
