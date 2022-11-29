@@ -15,23 +15,23 @@ namespace appSqlWpfLogisticCompany
     public partial class Requests
     {
         public int Code_Request { get; set; }
-        public Nullable<int> Code_Executor { get; set; }
-        public Nullable<int> Code_Driver { get; set; }
-        public Nullable<int> Code_Vehicle { get; set; }
+        public int Code_Executor { get; set; }
+        public int Code_Driver { get; set; }
+        public int Code_Vehicle { get; set; }
         public System.DateTime Date_Loading { get; set; }
         public string Place_Loading { get; set; }
-        public Nullable<int> Code_Shipper { get; set; }
+        public int Code_Shipper { get; set; }
         public string Name_Cargo { get; set; }
         public string Transportation_Conditions { get; set; }
         public System.DateTime Date_Unloading { get; set; }
         public string Place_Unloading { get; set; }
-        public Nullable<int> Code_Consignee { get; set; }
+        public int Code_Consignee { get; set; }
         public string Route_Towns { get; set; }
         public string Transportation_Format { get; set; }
         public string Amount_Payment { get; set; }
         public string Payment_Conditions { get; set; }
         public string Request_Status { get; set; }
-        public Nullable<System.DateTime> Date_Request { get; set; }
+        public System.DateTime Date_Request { get; set; }
     
         public virtual Consignees Consignees { get; set; }
         public virtual Drivers Drivers { get; set; }

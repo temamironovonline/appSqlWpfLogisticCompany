@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="f9439a5e375d487fbd02de2f2739a019" Name="Diagram1" ZoomLevel="72">
+        <EntityTypeShape EntityType="Model.Category_Trailer" Width="1.5" PointX="0.75" PointY="2.75" />
+        <EntityTypeShape EntityType="Model.Consignees" Width="1.5" PointX="3" PointY="0.75" />
+        <EntityTypeShape EntityType="Model.Drivers" Width="1.5" PointX="3" PointY="9.75" />
+        <EntityTypeShape EntityType="Model.Executors" Width="1.5" PointX="0.75" PointY="5.25" />
+        <EntityTypeShape EntityType="Model.Requests" Width="1.5" PointX="5.25" PointY="5.75" />
+        <EntityTypeShape EntityType="Model.Shippers" Width="1.5" PointX="5.375" PointY="12.25" />
+        <EntityTypeShape EntityType="Model.sysdiagrams" Width="1.5" PointX="7.75" PointY="6" />
+        <EntityTypeShape EntityType="Model.Users" Width="1.5" PointX="8" PointY="1.25" />
+        <EntityTypeShape EntityType="Model.Users_Gender" Width="1.5" PointX="5.75" PointY="2.125" />
+        <EntityTypeShape EntityType="Model.Users_Photo" Width="1.5" PointX="11.125" PointY="2" />
+        <EntityTypeShape EntityType="Model.Users_Roles" Width="1.5" PointX="7.75" PointY="9" />
+        <EntityTypeShape EntityType="Model.Vehicles" Width="1.5" PointX="3" PointY="4.75" />
+        <AssociationConnector Association="Model.FK__Vehicles__Code_C__4D94879B" />
+        <AssociationConnector Association="Model.FK__Requests__Code_C__5812160E" />
+        <AssociationConnector Association="Model.FK__Requests__Code_D__5535A963" />
+        <AssociationConnector Association="Model.FK_Drivers_Executors" />
+        <AssociationConnector Association="Model.FK__Requests__Code_E__5441852A" />
+        <AssociationConnector Association="Model.FK__Vehicles__Code_E__4CA06362" />
+        <AssociationConnector Association="Model.FK__Requests__Code_S__571DF1D5" />
+        <AssociationConnector Association="Model.FK__Requests__Code_V__5629CD9C" />
+        <AssociationConnector Association="Model.FK__Users_Pho__Code___2CF2ADDF" />
+        <AssociationConnector Association="Model.FK_Users_Genders" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

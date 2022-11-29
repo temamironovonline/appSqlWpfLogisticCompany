@@ -14,6 +14,12 @@ namespace appSqlWpfLogisticCompany
     
     public partial class Users
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Users()
+        {
+            this.Users_Photo = new HashSet<Users_Photo>();
+        }
+    
         public int Code_User { get; set; }
         public string Name_User { get; set; }
         public string Surname_User { get; set; }
@@ -25,7 +31,8 @@ namespace appSqlWpfLogisticCompany
         public int Code_Role { get; set; }
         public string Mail_User { get; set; }
     
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Users_Photo> Users_Photo { get; set; }
         public virtual Users_Gender Users_Gender { get; set; }
-        public virtual Users_Roles Users_Roles { get; set; }
     }
 }

@@ -9,19 +9,36 @@
       Title="PersonalAccountView">
 
     <Grid>
-        <StackPanel>
-            <Image Width="200" Height="200"></Image>
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Image Name="photoUser" Source="pack://application:,,,/Resources/photoUser.jpg" Width="200" Height="200"></Image>
             
             <WrapPanel>
-                <TextBlock Name="surnameUser"></TextBlock>
-                <TextBlock Name="nameUser"></TextBlock>
+                <TextBlock Text="ФИО: "></TextBlock>
+                <WrapPanel>
+                <TextBlock Margin="0,0,2,0" Name="surnameUser"></TextBlock>
+                <TextBlock Margin="0,0,2,0" Name="nameUser"></TextBlock>
                 <TextBlock Name="midnameUser"></TextBlock>
+                </WrapPanel>
+            </WrapPanel>
+            
+            <WrapPanel>
+                <TextBlock Text="Пол: "></TextBlock>
+                <TextBlock Name="genderUser"></TextBlock>
             </WrapPanel>
 
-            <TextBlock Name="genderUser"></TextBlock>
-            <TextBlock Name="birthdayUser"></TextBlock>
-            <TextBlock Name="roleUser"></TextBlock>
-            <TextBlock Name="mailUser"></TextBlock>
+            <WrapPanel>
+                <TextBlock Text="День Рождения: "></TextBlock>
+                <TextBlock Name="birthdayUser"></TextBlock>
+            </WrapPanel>
+            <WrapPanel>
+                <TextBlock Text="Роль: "></TextBlock>
+                <TextBlock Name="roleUser"></TextBlock>
+            </WrapPanel>
+            <WrapPanel>
+                <TextBlock Text="Почта: "></TextBlock>
+                <TextBlock Name="mailUser"></TextBlock>
+            </WrapPanel>
+            <Button Name="updateButton" Click="updateButton_Click">Изменить данные</Button>
         </StackPanel>
     </Grid>
 </Page>

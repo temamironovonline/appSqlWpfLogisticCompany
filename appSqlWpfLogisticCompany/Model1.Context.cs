@@ -13,10 +13,10 @@ namespace appSqlWpfLogisticCompany
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class LogisticCompanyDBEntities : DbContext
+    public partial class LogisticCompanyDB2Entities : DbContext
     {
-        public LogisticCompanyDBEntities()
-            : base("name=LogisticCompanyDBEntities")
+        public LogisticCompanyDB2Entities()
+            : base("name=LogisticCompanyDB2Entities")
         {
         }
     

@@ -64,6 +64,36 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Category_Trailer.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ChangePersonalData.xaml.cs">
+      <DependentUpon>ChangePersonalData.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Consignees.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Drivers.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Executors.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model1.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.edmx</DependentUpon>
+    </Compile>
     <Compile Include="Pages\addExecutor.xaml.cs">
       <DependentUpon>addExecutor.xaml</DependentUpon>
     </Compile>
@@ -72,33 +102,6 @@
     </Compile>
     <Compile Include="Pages\addRequestPage.xaml.cs">
       <DependentUpon>addRequestPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Category_Trailer.cs">
-      <DependentUpon>LogisticCompanyDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Consignees.cs">
-      <DependentUpon>LogisticCompanyDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Drivers.cs">
-      <DependentUpon>LogisticCompanyDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Executors.cs">
-      <DependentUpon>LogisticCompanyDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="LogisticCompanyDB.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>LogisticCompanyDB.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="LogisticCompanyDB.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>LogisticCompanyDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="LogisticCompanyDB.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>LogisticCompanyDB.edmx</DependentUpon>
     </Compile>
     <Compile Include="Pages\listOfRegistratedUsers.xaml.cs">
       <DependentUpon>listOfRegistratedUsers.xaml</DependentUpon>
@@ -133,30 +136,40 @@
     <Compile Include="Pages\RequestsPage.xaml.cs">
       <DependentUpon>RequestsPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Requests.cs">
-      <DependentUpon>LogisticCompanyDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Shippers.cs">
-      <DependentUpon>LogisticCompanyDB.tt</DependentUpon>
-    </Compile>
     <Compile Include="Pages\updateDriver.xaml.cs">
       <DependentUpon>updateDriver.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\updateVehicle.xaml.cs">
       <DependentUpon>updateVehicle.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Requests.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Shippers.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sysdiagrams.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="Users.cs">
-      <DependentUpon>LogisticCompanyDB.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Users_Gender.cs">
-      <DependentUpon>LogisticCompanyDB.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Users_Photo.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Users_Roles.cs">
-      <DependentUpon>LogisticCompanyDB.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Vehicles.cs">
-      <DependentUpon>LogisticCompanyDB.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Page Include="ChangePersonalData.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\addExecutor.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -244,12 +257,12 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EntityDeploy Include="LogisticCompanyDB.edmx">
+    <EntityDeploy Include="Model1.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>LogisticCompanyDB.Designer.cs</LastGenOutput>
+      <LastGenOutput>Model1.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="LogisticCompanyDB.edmx.diagram">
-      <DependentUpon>LogisticCompanyDB.edmx</DependentUpon>
+    <None Include="Model1.edmx.diagram">
+      <DependentUpon>Model1.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -276,15 +289,18 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="LogisticCompanyDB.Context.tt">
+    <Resource Include="Resources\photoUser.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Model1.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>LogisticCompanyDB.edmx</DependentUpon>
-      <LastGenOutput>LogisticCompanyDB.Context.cs</LastGenOutput>
+      <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>Model1.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="LogisticCompanyDB.tt">
+    <Content Include="Model1.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>LogisticCompanyDB.edmx</DependentUpon>
-      <LastGenOutput>LogisticCompanyDB.cs</LastGenOutput>
+      <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>Model1.cs</LastGenOutput>
     </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
