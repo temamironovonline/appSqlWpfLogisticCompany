@@ -152,6 +152,7 @@
     <Compile Include="Requests.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="RequestsPage.cs" />
     <Compile Include="Shippers.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>

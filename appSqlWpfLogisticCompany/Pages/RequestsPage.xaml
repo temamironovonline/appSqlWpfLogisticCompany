@@ -106,7 +106,7 @@
                                 <TextBlock Text="{Binding Amount_Payment, StringFormat=Сумма оплаты: {0}}" Foreground="{Binding RequestPaymentColor}"></TextBlock>
                                 <TextBlock Text="{Binding Payment_Conditions, StringFormat=Условия оплаты: {0}}"></TextBlock>
                                 <TextBlock Text="{Binding Date_Request, ConverterCulture=ru, StringFormat=Дата заявки: dd MMMM yyyy года}"></TextBlock>
-                                <TextBlock Text="{Binding Request_Status}" Foreground="{Binding RequestStatusColor}"></TextBlock>
+                                <TextBlock Text="{Binding Request_Status}" Foreground="{Binding StatusColor}"></TextBlock>
                             </StackPanel>
                         </Grid>
                     </Border>

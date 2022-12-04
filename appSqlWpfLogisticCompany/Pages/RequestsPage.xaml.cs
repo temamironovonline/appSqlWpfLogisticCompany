@@ -19,6 +19,8 @@ namespace appSqlWpfLogisticCompany
             sortingComboBox.SelectedIndex = 0;
             typeSortingComboBox.SelectedIndex = 0;
             typeSortingPanel.Visibility = Visibility.Collapsed;
+
+            
             
             List <Executors> executorsList = DataBaseConnection.LogisticCompanyDB.Executors.ToList();
             executorsComboBox.Items.Add("Не выбрано");
