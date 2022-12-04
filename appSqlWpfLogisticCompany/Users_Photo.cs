@@ -18,6 +18,7 @@ namespace appSqlWpfLogisticCompany
         public int Code_User { get; set; }
         public string Path_Photo { get; set; }
         public byte[] Photo_User { get; set; }
+        public Nullable<bool> Current_Photo { get; set; }
     
         public virtual Users Users { get; set; }
     }

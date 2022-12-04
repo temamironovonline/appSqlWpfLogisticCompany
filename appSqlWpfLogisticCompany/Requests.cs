@@ -26,7 +26,7 @@ namespace appSqlWpfLogisticCompany
         public System.DateTime Date_Unloading { get; set; }
         public string Place_Unloading { get; set; }
         public int Code_Consignee { get; set; }
-        public string Route_Towns { get; set; }
+        public int Route_Towns { get; set; }
         public string Transportation_Format { get; set; }
         public string Amount_Payment { get; set; }
         public string Payment_Conditions { get; set; }

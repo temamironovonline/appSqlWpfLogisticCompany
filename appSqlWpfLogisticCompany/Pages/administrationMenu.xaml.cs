@@ -20,9 +20,15 @@ namespace appSqlWpfLogisticCompany
     /// </summary>
     public partial class administrationMenu : Page
     {
+        Users user;
         public administrationMenu()
         {
             InitializeComponent();
+        }
+        public administrationMenu(Users user)
+        {
+            InitializeComponent();
+            this.user = user;
         }
 
         private void buttonViewRegistratedUsers_Click(object sender, RoutedEventArgs e)
@@ -38,6 +44,11 @@ namespace appSqlWpfLogisticCompany
         private void buttonViewExecutors_Click(object sender, RoutedEventArgs e)
         {
             forFrameClass.publicFrame.Navigate(new listOfExecutors());
+        }
+
+        private void buttonPersonalAccount_Click(object sender, RoutedEventArgs e)
+        {
+            forFrameClass.publicFrame.Navigate(new PersonalAccountView(user));
         }
     }
 }

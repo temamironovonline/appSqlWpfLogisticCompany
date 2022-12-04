@@ -69,7 +69,7 @@ namespace appSqlWpfLogisticCompany
                     }
                     else
                     {
-                        forFrameClass.publicFrame.Navigate(new administrationMenu());
+                        forFrameClass.publicFrame.Navigate(new administrationMenu(registratedUser));
                     }
 
                 }

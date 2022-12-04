@@ -1,0 +1,58 @@
+﻿<Page x:Class="appSqlWpfLogisticCompany.PersonalAccountView"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:appSqlWpfLogisticCompany"
+      mc:Ignorable="d" 
+      d:DesignHeight="600" d:DesignWidth="1000"
+      Title="PersonalAccountView">
+
+    <Grid>
+        <WrapPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                <Image Name="photoUser" Source="pack://application:,,,/Resources/photoUser.jpg" Width="200" Height="200"></Image>
+                <Button Name="updatePhoto" Content="Добавить фото" Click="updatePhoto_Click"></Button>
+                <Button Name="addMorePhoto" Content="Добавить несколько фото" Click="addMorePhoto_Click"></Button>
+                <Button Name="selectPhotoDB" Content="Выбрать фото из имеющихся" Click="selectPhoto_Click"></Button>
+                <WrapPanel>
+                    <TextBlock Text="ФИО: "></TextBlock>
+                    <WrapPanel>
+                        <TextBlock Margin="0,0,2,0" Name="surnameUser"></TextBlock>
+                        <TextBlock Margin="0,0,2,0" Name="nameUser"></TextBlock>
+                        <TextBlock Name="midnameUser"></TextBlock>
+                    </WrapPanel>
+                </WrapPanel>
+
+                <WrapPanel>
+                    <TextBlock Text="Пол: "></TextBlock>
+                    <TextBlock Name="genderUser"></TextBlock>
+                </WrapPanel>
+
+                <WrapPanel>
+                    <TextBlock Text="День Рождения: "></TextBlock>
+                    <TextBlock Name="birthdayUser"></TextBlock>
+                </WrapPanel>
+                <WrapPanel>
+                    <TextBlock Text="Роль: "></TextBlock>
+                    <TextBlock Name="roleUser"></TextBlock>
+                </WrapPanel>
+                <WrapPanel>
+                    <TextBlock Text="Почта: "></TextBlock>
+                    <TextBlock Name="mailUser"></TextBlock>
+                </WrapPanel>
+                <Button Name="updateButton" Click="updateButton_Click">Изменить персональные данные</Button>
+                <Button Name="updateRegButton" Click="updateRegButton_Click">Изменить регистрационные данные</Button>
+                <Button Name="backButton" Click="backButton_Click" Visibility="Visible">Назад</Button>
+            </StackPanel>
+            <StackPanel Name="selectPhotoPanel">
+            <WrapPanel>
+                <Button Name="backPhotoButton" Content="Предыдущая" Height="50" Click="backPhotoButton_Click"></Button>
+                <Image Name="newImageUser" Width="150" Height="150"></Image>
+                <Button Name="nextPhotoButton" Content="Следующая" Height="50" Click="nextPhotoButton_Click"></Button>
+            </WrapPanel>
+                <Button Name="selectPhotoFromDB" Content="Выбрать" Width="100" Click="selectPhotoFromDB_Click"></Button>
+            </StackPanel>
+        </WrapPanel>
+    </Grid>
+</Page>

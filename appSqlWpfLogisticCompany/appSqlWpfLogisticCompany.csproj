@@ -44,6 +44,10 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Drawing.Common, Version=7.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Drawing.Common.7.0.0\lib\net462\System.Drawing.Common.dll</HintPath>
+    </Reference>
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
     <Reference Include="System.Xml" />
@@ -69,6 +73,9 @@
     </Compile>
     <Compile Include="ChangePersonalData.xaml.cs">
       <DependentUpon>ChangePersonalData.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ChangeRegistrationData.xaml.cs">
+      <DependentUpon>ChangeRegistrationData.xaml</DependentUpon>
     </Compile>
     <Compile Include="Consignees.cs">
       <DependentUpon>Model1.tt</DependentUpon>
@@ -120,7 +127,7 @@
     <Compile Include="Pages\RegistrationPage.xaml.cs">
       <DependentUpon>RegistrationPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="PersonalAccountView.xaml.cs">
+    <Compile Include="Pages\PersonalAccountView.xaml.cs">
       <DependentUpon>PersonalAccountView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\Languages\Language.Designer.cs">
@@ -167,6 +174,10 @@
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Page Include="ChangePersonalData.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ChangeRegistrationData.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -226,7 +237,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="PersonalAccountView.xaml">
+    <Page Include="Pages\PersonalAccountView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

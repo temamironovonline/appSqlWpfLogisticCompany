@@ -10,7 +10,7 @@
             <PropertyRef Name="Code_Trailer" />
           </Key>
           <Property Name="Code_Trailer" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Name_Trailer" Type="nvarchar" MaxLength="21" Nullable="false" />
+          <Property Name="Name_Trailer" Type="nvarchar(max)" Nullable="false" />
         </EntityType>
         <EntityType Name="Consignees">
           <Key>
@@ -60,7 +60,7 @@
           <Property Name="Date_Unloading" Type="date" Nullable="false" />
           <Property Name="Place_Unloading" Type="nvarchar" MaxLength="151" Nullable="false" />
           <Property Name="Code_Consignee" Type="int" Nullable="false" />
-          <Property Name="Route_Towns" Type="nvarchar" MaxLength="51" Nullable="false" />
+          <Property Name="Route_Towns" Type="int" Nullable="false" />
           <Property Name="Transportation_Format" Type="nvarchar" MaxLength="101" Nullable="false" />
           <Property Name="Amount_Payment" Type="nvarchar" MaxLength="13" Nullable="false" />
           <Property Name="Payment_Conditions" Type="nvarchar" MaxLength="101" Nullable="false" />
@@ -118,6 +118,7 @@
           <Property Name="Code_User" Type="int" Nullable="false" />
           <Property Name="Path_Photo" Type="nvarchar(max)" />
           <Property Name="Photo_User" Type="varbinary(max)" />
+          <Property Name="Current_Photo" Type="bit" />
         </EntityType>
         <EntityType Name="Users_Roles">
           <Key>
@@ -391,7 +392,7 @@
             <PropertyRef Name="Code_Trailer" />
           </Key>
           <Property Name="Code_Trailer" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Name_Trailer" Type="String" Nullable="false" MaxLength="21" FixedLength="false" Unicode="true" />
+          <Property Name="Name_Trailer" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Vehicles" Relationship="Model.FK__Vehicles__Code_C__4D94879B" FromRole="Category_Trailer" ToRole="Vehicles" />
         </EntityType>
         <EntityType Name="Consignees">
@@ -448,7 +449,7 @@
           <Property Name="Date_Unloading" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="Place_Unloading" Type="String" Nullable="false" MaxLength="151" FixedLength="false" Unicode="true" />
           <Property Name="Code_Consignee" Type="Int32" Nullable="false" />
-          <Property Name="Route_Towns" Type="String" Nullable="false" MaxLength="51" FixedLength="false" Unicode="true" />
+          <Property Name="Route_Towns" Type="Int32" Nullable="false" />
           <Property Name="Transportation_Format" Type="String" Nullable="false" MaxLength="101" FixedLength="false" Unicode="true" />
           <Property Name="Amount_Payment" Type="String" Nullable="false" MaxLength="13" FixedLength="false" Unicode="true" />
           <Property Name="Payment_Conditions" Type="String" Nullable="false" MaxLength="101" FixedLength="false" Unicode="true" />
@@ -515,6 +516,7 @@
           <Property Name="Code_User" Type="Int32" Nullable="false" />
           <Property Name="Path_Photo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Photo_User" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="Current_Photo" Type="Boolean" />
           <NavigationProperty Name="Users" Relationship="Model.FK__Users_Pho__Code___2CF2ADDF" FromRole="Users_Photo" ToRole="Users" />
         </EntityType>
         <EntityType Name="Users_Roles">
@@ -675,7 +677,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-      </Schema>
+        </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
@@ -798,6 +800,7 @@
           <EntitySetMapping Name="Users_Photo">
             <EntityTypeMapping TypeName="Model.Users_Photo">
               <MappingFragment StoreEntitySet="Users_Photo">
+                <ScalarProperty Name="Current_Photo" ColumnName="Current_Photo" />
                 <ScalarProperty Name="Photo_User" ColumnName="Photo_User" />
                 <ScalarProperty Name="Path_Photo" ColumnName="Path_Photo" />
                 <ScalarProperty Name="Code_User" ColumnName="Code_User" />
