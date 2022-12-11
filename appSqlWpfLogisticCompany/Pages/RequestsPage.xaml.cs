@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Input;
 
 namespace appSqlWpfLogisticCompany
 {
@@ -12,6 +13,8 @@ namespace appSqlWpfLogisticCompany
     /// </summary>
     public partial class RequestsPage : Page
     {
+        PaginationRequest paginationRequest = new PaginationRequest();
+        List<Requests> requests = new List<Requests>();
         public RequestsPage()
         {
             InitializeComponent();
@@ -21,7 +24,6 @@ namespace appSqlWpfLogisticCompany
             typeSortingPanel.Visibility = Visibility.Collapsed;
 
             
-            
             List <Executors> executorsList = DataBaseConnection.LogisticCompanyDB.Executors.ToList();
             executorsComboBox.Items.Add("Не выбрано");
             foreach(Executors executor in executorsList)
@@ -30,9 +32,13 @@ namespace appSqlWpfLogisticCompany
             }
             executorsComboBox.SelectedIndex = 0;
 
+            requests = DataBaseConnection.LogisticCompanyDB.Requests.ToList();
             listRequests.ItemsSource = DataBaseConnection.LogisticCompanyDB.Requests.ToList();
             int count = DataBaseConnection.LogisticCompanyDB.Requests.Count(x => x.Date_Request.Month == DateTime.Now.Month && x.Date_Request.Year == DateTime.Now.Year);
             countRequest.Text = Convert.ToString(count);
+
+            paginationRequest.CountPage = DataBaseConnection.LogisticCompanyDB.Requests.ToList().Count;
+            DataContext = paginationRequest;
         }
 
         private void filtrationInformation()
@@ -141,6 +147,58 @@ namespace appSqlWpfLogisticCompany
         private void typeSortingComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             filtrationInformation();
+        }
+
+        private void txtPageCount_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            try
+            {
+                paginationRequest.CountPage = Convert.ToInt32(txtPageCount.Text); // если в текстовом поле есnь значение, присваиваем его свойству объекта, которое хранит количество записей на странице
+            }
+            catch
+            {
+                paginationRequest.CountPage = requests.Count; // если в текстовом поле значения нет, присваиваем свойству объекта, которое хранит количество записей на странице количество элементов в списке
+            }
+            paginationRequest.Countlist = requests.Count;  // присваиваем новое значение свойству, которое в объекте отвечает за общее количество записей
+            listRequests.ItemsSource = requests.Skip(0).Take(paginationRequest.CountPage).ToList();  // отображаем первые записи в том количестве, которое равно CountPage
+            paginationRequest.CurrentPage = 1; // текущая страница - это страница 1
+        }
+
+        private void GoPage_MouseDown(object sender, MouseButtonEventArgs e)  // обработка нажатия на один из Textblock в меню с номерами страниц
+        {
+            TextBlock tb = (TextBlock)sender;
+
+            switch (tb.Uid)  // определяем, куда конкретно было сделано нажатие
+            {
+                case "prev":
+                    paginationRequest.CurrentPage--;
+                    break;
+                case "next":
+                    paginationRequest.CurrentPage++;
+                    break;
+                default:
+                    paginationRequest.CurrentPage = Convert.ToInt32(tb.Text);
+                    break;
+            }
+            listRequests.ItemsSource = requests.Skip(paginationRequest.CurrentPage * paginationRequest.CountPage - paginationRequest.CountPage).Take(paginationRequest.CountPage).ToList();  // оображение записей постранично с определенным количеством на каждой странице
+            // Skip(pc.CurrentPage* pc.CountPage - pc.CountPage) - сколько пропускаем записей
+            // Take(pc.CountPage) - сколько записей отображаем на странице
+        }
+
+        private void btn_Click(object sender, RoutedEventArgs e)
+        {
+            paginationRequest.CurrentPage = 1;
+
+            try
+            {
+                paginationRequest.CountPage = Convert.ToInt32(txtPageCount.Text); // если в текстовом поле есnь значение, присваиваем его свойству объекта, которое хранит количество записей на странице
+            }
+            catch
+            {
+                paginationRequest.CountPage = requests.Count; // если в текстовом поле значения нет, присваиваем свойству объекта, которое хранит количество записей на странице количество элементов в списке
+            }
+            paginationRequest.Countlist = requests.Count;  // присваиваем новое значение свойству, которое в объекте отвечает за общее количество записей
+            listRequests.ItemsSource = requests.Skip(0).Take(paginationRequest.CountPage).ToList();  // отображаем первые записи в том количестве, которое равно CountPage
         }
     }
 }

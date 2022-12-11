@@ -71,10 +71,10 @@
     <Compile Include="Category_Trailer.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="ChangePersonalData.xaml.cs">
+    <Compile Include="Windows\ChangePersonalData.xaml.cs">
       <DependentUpon>ChangePersonalData.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ChangeRegistrationData.xaml.cs">
+    <Compile Include="Windows\ChangeRegistrationData.xaml.cs">
       <DependentUpon>ChangeRegistrationData.xaml</DependentUpon>
     </Compile>
     <Compile Include="Consignees.cs">
@@ -116,8 +116,8 @@
     <Compile Include="Pages\administrationMenu.xaml.cs">
       <DependentUpon>administrationMenu.xaml</DependentUpon>
     </Compile>
-    <Compile Include="DataBaseConnection.cs" />
-    <Compile Include="forFrameClass.cs" />
+    <Compile Include="Classes\DataBaseConnection.cs" />
+    <Compile Include="Classes\forFrameClass.cs" />
     <Compile Include="Pages\personalAccount.xaml.cs">
       <DependentUpon>personalAccount.xaml</DependentUpon>
     </Compile>
@@ -130,6 +130,7 @@
     <Compile Include="Pages\PersonalAccountView.xaml.cs">
       <DependentUpon>PersonalAccountView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Classes\PaginationRequest.cs" />
     <Compile Include="Properties\Languages\Language.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -152,7 +153,7 @@
     <Compile Include="Requests.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="RequestsPage.cs" />
+    <Compile Include="Classes\RequestsPage.cs" />
     <Compile Include="Shippers.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -174,11 +175,11 @@
     <Compile Include="Vehicles.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Page Include="ChangePersonalData.xaml">
+    <Page Include="Windows\ChangePersonalData.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="ChangeRegistrationData.xaml">
+    <Page Include="Windows\ChangeRegistrationData.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
