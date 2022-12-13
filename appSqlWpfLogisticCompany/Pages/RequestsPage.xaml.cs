@@ -43,62 +43,61 @@ namespace appSqlWpfLogisticCompany
 
         private void filtrationInformation()
         {
-            List<Requests> requestsList;
             
             if(executorsComboBox.SelectedIndex > 0)
             {
-                requestsList = DataBaseConnection.LogisticCompanyDB.Requests.Where(x => x.Code_Executor == executorsComboBox.SelectedIndex).ToList();
+                requests = DataBaseConnection.LogisticCompanyDB.Requests.Where(x => x.Code_Executor == executorsComboBox.SelectedIndex).ToList();
             }
             else
             {
-                requestsList = DataBaseConnection.LogisticCompanyDB.Requests.ToList();
+                requests = DataBaseConnection.LogisticCompanyDB.Requests.ToList();
             }
 
             Regex regexCityLoading = new Regex($@".*{loadingCityTextBox.Text.ToLower()}.*");
             Regex regexCityUnoading = new Regex($@".*{unloadingCityTextBox.Text.ToLower()}.*");
 
-            requestsList = requestsList.Where(x => regexCityLoading.IsMatch(x.Place_Loading.ToLower()) && regexCityUnoading.IsMatch(x.Place_Unloading.ToLower())).ToList();
+            requests = requests.Where(x => regexCityLoading.IsMatch(x.Place_Loading.ToLower()) && regexCityUnoading.IsMatch(x.Place_Unloading.ToLower())).ToList();
 
             if (closedRequestCheckBox.IsChecked == true)
             {
-                requestsList = requestsList.Where(x => x.Request_Status == "Закрыта").ToList();
+                requests = requests.Where(x => x.Request_Status == "Закрыта").ToList();
             }
 
             if (sortingComboBox.SelectedIndex == 1)
             {
                 if (typeSortingComboBox.SelectedIndex == 1)
                 {
-                    requestsList = requestsList.OrderBy(x => x.Amount_Payment).ToList();
+                    requests = requests.OrderBy(x => x.Amount_Payment).ToList();
                 }
                 else if (typeSortingComboBox.SelectedIndex == 2)
                 {
-                    requestsList = requestsList.OrderByDescending(x => x.Amount_Payment).ToList();
+                    requests = requests.OrderByDescending(x => x.Amount_Payment).ToList();
                 }
             }
             else if (sortingComboBox.SelectedIndex == 2)
             {
                 if (typeSortingComboBox.SelectedIndex == 1)
                 {
-                    requestsList = requestsList.OrderBy(x => x.Route_Towns).ToList();
+                    requests = requests.OrderBy(x => x.Route_Towns).ToList();
                 }
                 else if (typeSortingComboBox.SelectedIndex == 2)
                 {
-                    requestsList = requestsList.OrderByDescending(x => x.Route_Towns).ToList();
+                    requests = requests.OrderByDescending(x => x.Route_Towns).ToList();
                 }
             }
             else if (sortingComboBox.SelectedIndex == 3)
             {
                 if (typeSortingComboBox.SelectedIndex == 1)
                 {
-                    requestsList = requestsList.OrderBy(x => x.Date_Request).ToList();
+                    requests = requests.OrderBy(x => x.Date_Request).ToList();
                 }
                 else if (typeSortingComboBox.SelectedIndex == 2)
                 {
-                    requestsList = requestsList.OrderByDescending(x => x.Date_Request).ToList();
+                    requests = requests.OrderByDescending(x => x.Date_Request).ToList();
                 }
             }
 
-            listRequests.ItemsSource = requestsList;
+            listRequests.ItemsSource = requests;
         }
 
         private void backButton_Click(object sender, RoutedEventArgs e)
